@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一份基于叶芝《幻象》的内在结构报告</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   VINTAGE PAPER THEME — Inspired by Yeats's era (Celtic Revival, Arts & Crafts)
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper: #f5efdf;
+  --paper-dark: #e8dfc8;
+  --paper-light: #fdf9f0;
+  --ink: #3d2b1f;
+  --ink-light: #5c4a3a;
+  --ink-muted: #8b7355;
+  --navy: #1a2744;
+  --navy-light: #2c3e5a;
+  --gold: #b8860b;
+  --gold-light: #c9a84c;
+  --gold-pale: #d4c5a0;
+  --terracotta: #c47335;
+  --terracotta-light: #d4894a;
+  --will-color: #c47335;
+  --will-light: #d4894a;
+  --mask-color: #5a7a9a;
+  --mask-light: #7a9ab8;
+  --cm-color: #2c5f8a;
+  --cm-light: #3a78aa;
+  --bof-color: #8b3a3a;
+  --bof-light: #a05050;
+  --border-pale: #d4c5a0;
+  --border-ink: #3d2b1f;
+  --font-display: 'Cinzel', 'Georgia', serif;
+  --font-body-en: 'EB Garamond', 'Georgia', serif;
+  --font-body-cn: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(139,115,85,0.03) 2px, rgba(139,115,85,0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(139,115,85,0.02) 1px, rgba(139,115,85,0.02) 2px);
+  color: var(--ink);
+  font-family: var(--font-body-cn);
+  line-height: 1.9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 600; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); color: var(--navy); text-align: center; letter-spacing: 0.06em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--navy); margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 2px double var(--border-pale); letter-spacing: 0.05em; }
+h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--ink); margin: 1.5rem 0 0.8rem; font-weight: 700; }
+h4 { font-size: 0.95rem; color: var(--navy); margin: 1rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+p { margin-bottom: 1rem; }
+em { font-style: italic; color: var(--terracotta); }
+strong { color: var(--navy); }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--paper-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-pale); border-radius: 4px; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section { padding: 4rem 0; position: relative; }
+.section-divider {
+  width: 200px; height: 3px; margin: 3rem auto; position: relative;
+  background: transparent; border-top: 1px solid var(--border-pale); border-bottom: 1px solid var(--border-pale);
+}
+.section-divider::after {
+  content: '✦'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  color: var(--gold); font-size: 0.7rem; background: var(--paper); padding: 0 10px;
+}
+
+/* ============================================================
+   ORNAMENTAL TOP BORDER (Yeats-era decorative band)
+   ============================================================ */
+.ornament-band {
+  width: 100%; max-width: 400px; margin: 2rem auto; text-align: center;
+  font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.3em;
+  color: var(--gold); position: relative;
+}
+.ornament-band::before, .ornament-band::after {
+  content: ''; position: absolute; top: 50%; width: 30%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-pale), transparent);
+}
+.ornament-band::before { left: 0; }
+.ornament-band::after { right: 0; }
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; position: relative; padding: 3rem 2rem;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(184,134,11,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(26,39,68,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(196,115,53,0.04) 0%, transparent 50%),
+    var(--paper);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  width: 28px; height: 44px; border: 2px solid var(--border-pale); border-radius: 14px;
+  animation: scrollHint 2s ease-in-out infinite;
+}
+.hero::after { box-shadow: inset 0 7px 0 var(--gold-pale); }
+@keyframes scrollHint {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+}
+.hero-subtitle { font-family: var(--font-display); color: var(--ink-muted); font-size: 1rem; letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+.hero-author { color: var(--ink-muted); font-style: italic; font-size: 1.05rem; margin: 0.8rem 0 1.5rem; }
+.hero-intro { max-width: 720px; margin: 0 auto; color: var(--ink-light); font-size: 1rem; line-height: 2; text-align: left; }
+.hero-intro p { margin-bottom: 1.2rem; text-indent: 2em; }
+.hero-intro p:first-child { text-indent: 0; }
+.hero-intro .dropcap::first-letter {
+  float: left; font-family: var(--font-display); font-size: 3.5rem; line-height: 0.8;
+  padding-right: 8px; padding-top: 4px; color: var(--navy); font-weight: 900;
+}
+
+/* Gyre illustration */
+.gyre-diagram {
+  display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  margin: 2.5rem 0; padding: 1.5rem; background: var(--paper-dark); border-radius: 8px;
+  border: 1px solid var(--border-pale);
+}
+.gyre-diagram svg { max-width: 100%; }
+.gyre-diagram .gyre-label { font-size: 0.85rem; color: var(--ink-muted); text-align: left; line-height: 1.8; max-width: 320px; }
+.gyre-diagram .gyre-label strong { color: var(--navy); }
+
+/* Disclaimer box */
+.source-note {
+  margin: 1.5rem auto 0; padding: 0.8rem 1.2rem; max-width: 700px;
+  background: var(--paper-dark); border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0; font-size: 0.85rem; color: var(--ink-muted);
+  line-height: 1.8; text-align: left;
+}
+.source-note strong { color: var(--navy); }
+
+/* ============================================================
+   COMPASS SECTION
+   ============================================================ */
+.compass-section {
+  display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;
+  background: var(--paper-light); border-radius: 12px; padding: 2rem;
+  border: 1px solid var(--border-pale);
+  box-shadow: 0 4px 20px rgba(61,43,31,0.08);
+}
+.compass-col { flex: 1 1 500px; min-width: 380px; display: flex; flex-direction: column; align-items: center; }
+.detail-col { flex: 1 1 400px; min-width: 320px; max-height: 700px; overflow-y: auto; padding: 0 1rem; }
+#compassCanvas { cursor: pointer; max-width: 100%; }
+
+.detail-panel {
+  background: var(--paper); border-radius: 8px; border: 1px solid var(--border-pale);
+  padding: 1.5rem; transition: all 0.3s ease;
+}
+.detail-phase-number { font-family: var(--font-display); font-size: 3rem; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; }
+.detail-phase-name { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.2rem; }
+.detail-phase-en { font-family: var(--font-display); font-size: 0.85rem; color: var(--ink-muted); letter-spacing: 0.06em; margin-bottom: 1rem; }
+.detail-section-title { font-family: var(--font-display); font-size: 0.8rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin: 1rem 0 0.4rem; border-top: 1px solid var(--border-pale); padding-top: 0.8rem; }
+.detail-faculty-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.3rem; font-size: 0.95rem; }
+.faculty-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.faculty-dot.will { background: var(--will-color); }
+.faculty-dot.mask { background: var(--mask-color); }
+.faculty-dot.cm { background: var(--cm-color); }
+.faculty-dot.bof { background: var(--bof-color); }
+.faculty-label { font-weight: 600; min-width: 70px; color: var(--ink); }
+.faculty-value { color: var(--ink-light); }
+.faculty-phase { color: var(--ink-muted); font-size: 0.85rem; }
+
+.faculty-legend { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+.legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-display); font-size: 0.85rem; color: var(--ink-light); }
+.legend-dot { width: 14px; height: 14px; border-radius: 50%; }
+.legend-dot.w { background: var(--will-color); }
+.legend-dot.m { background: var(--mask-color); }
+.legend-dot.c { background: var(--cm-color); }
+.legend-dot.b { background: var(--bof-color); }
+
+/* ============================================================
+   FACULTIES DEEP DIVE
+   ============================================================ */
+.faculties-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.faculty-card {
+  background: var(--paper-light); border-radius: 8px; padding: 1.8rem;
+  border: 1px solid var(--border-pale); transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.faculty-card::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; }
+.faculty-card.will-card::before { background: var(--will-color); }
+.faculty-card.mask-card::before { background: var(--mask-color); }
+.faculty-card.cm-card::before { background: var(--cm-color); }
+.faculty-card.bof-card::before { background: var(--bof-color); }
+.faculty-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(61,43,31,0.1); }
+.faculty-card-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.faculty-card h3 { font-family: var(--font-display); margin-top: 0; font-size: 1.3rem; }
+.faculty-card .en-name { font-family: var(--font-display); color: var(--ink-muted); font-size: 0.85rem; letter-spacing: 0.06em; margin-bottom: 1rem; }
+
+/* ============================================================
+   PHASE GRID
+   ============================================================ */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; }
+.phase-card {
+  background: var(--paper-light); border-radius: 8px; padding: 1rem;
+  border: 1px solid var(--border-pale); cursor: pointer;
+  transition: all 0.25s ease; text-align: center;
+}
+.phase-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(184,134,11,0.12); }
+.phase-card.active { border-color: var(--navy); border-width: 2px; background: var(--paper-dark); }
+.phase-card-num { font-family: var(--font-display); font-size: 1.4rem; color: var(--navy); }
+.phase-card-name { font-size: 0.95rem; margin: 0.3rem 0; color: var(--ink); }
+.phase-card-en { font-family: var(--font-display); font-size: 0.7rem; color: var(--ink-muted); letter-spacing: 0.04em; }
+.phase-card-tendency { font-size: 0.7rem; display: inline-block; padding: 2px 8px; border-radius: 10px; margin-top: 0.4rem; }
+.tendency-primary { background: rgba(90,122,154,0.12); color: var(--mask-color); }
+.tendency-antithetical { background: rgba(184,134,11,0.12); color: var(--gold); }
+
+/* ============================================================
+   QUOTES & CONCEPTS
+   ============================================================ */
+blockquote {
+  border-left: 3px solid var(--navy); padding: 1.2rem 1.8rem; margin: 2rem 0;
+  background: var(--paper-dark); border-radius: 0 6px 6px 0;
+  font-style: italic; color: var(--ink-light);
+}
+blockquote .attribution { display: block; margin-top: 0.6rem; color: var(--ink-muted); font-style: normal; font-size: 0.9rem; }
+.concept-box { background: var(--paper-light); border-radius: 8px; padding: 1.5rem; border: 1px solid var(--border-pale); margin: 1.5rem 0; }
+.concept-box h4 { font-family: var(--font-display); color: var(--navy); margin-top: 0; }
+
+.axis-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0; }
+.axis-box { flex: 1 1 280px; background: var(--paper-light); border-radius: 8px; padding: 1.3rem; border: 1px solid var(--border-pale); }
+.axis-box.subjective { border-left: 3px solid var(--terracotta); }
+.axis-box.objective { border-left: 3px solid var(--navy); }
+
+.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+.data-table th { font-family: var(--font-display); text-align: left; padding: 0.8rem 0.6rem; border-bottom: 2px solid var(--navy); color: var(--navy); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.data-table td { padding: 0.7rem 0.6rem; border-bottom: 1px solid var(--border-pale); vertical-align: top; color: var(--ink); }
+.data-table tr:hover td { background: rgba(184,134,11,0.04); }
+
+.nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+.nav-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border-pale); cursor: pointer; transition: all 0.3s ease; border: 1px solid var(--ink-muted); }
+.nav-dot:hover, .nav-dot.active { background: var(--navy); border-color: var(--navy); }
+
+/* ============================================================
+   PSYCHOLOGICAL TEST SECTION
+   ============================================================ */
+.test-section {
+  background: var(--paper-light); border-radius: 12px;
+  padding: 3rem 2rem; border: 1px solid var(--border-pale);
+  box-shadow: 0 4px 20px rgba(61,43,31,0.06);
+  max-width: 720px; margin: 0 auto; text-align: center; position: relative; overflow: hidden;
+  min-height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.test-section::before {
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(ellipse at center, rgba(184,134,11,0.04) 0%, transparent 70%); pointer-events: none;
+}
+.test-card { width: 100%; transition: opacity 0.4s ease, transform 0.4s ease; }
+.test-card.fade-out { opacity: 0; transform: translateY(-20px); }
+.test-card.fade-in { opacity: 0; transform: translateY(20px); animation: fadeSlideIn 0.5s ease forwards; }
+@keyframes fadeSlideIn { to { opacity: 1; transform: translateY(0); } }
+.test-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.test-title { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.8rem; }
+.test-desc { color: var(--ink-light); font-size: 1rem; line-height: 1.9; margin-bottom: 1.5rem; }
+.test-btn {
+  display: inline-block; padding: 0.9rem 2.2rem; font-family: var(--font-display);
+  font-size: 0.95rem; color: #fff; background: var(--navy); border: none;
+  border-radius: 4px; cursor: pointer; letter-spacing: 0.08em;
+  transition: all 0.3s ease; font-weight: 700;
+}
+.test-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,39,68,0.25); background: var(--navy-light); }
+.test-btn.secondary { background: transparent; border: 2px solid var(--navy); color: var(--navy); }
+.test-btn.secondary:hover { background: var(--navy); color: #fff; }
+.test-progress-wrap { width: 100%; margin-bottom: 1.5rem; }
+.test-progress-bar { width: 100%; height: 4px; background: var(--paper-dark); border-radius: 2px; overflow: hidden; }
+.test-progress-fill { height: 100%; background: var(--navy); border-radius: 2px; transition: width 0.5s ease; }
+.test-progress-label { font-family: var(--font-display); font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.4rem; letter-spacing: 0.06em; }
+.test-question-num { font-family: var(--font-display); font-size: 0.9rem; color: var(--navy); letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+.test-question-text { font-family: var(--font-body-cn); font-size: 1.15rem; color: var(--ink); margin-bottom: 1.8rem; line-height: 1.7; font-weight: 500; }
+.test-options { display: flex; flex-direction: column; gap: 0.7rem; width: 100%; margin-bottom: 1.5rem; }
+.test-option {
+  display: block; width: 100%; padding: 1rem 1.5rem; text-align: left;
+  font-family: var(--font-body-cn); font-size: 0.95rem; color: var(--ink-light);
+  background: var(--paper); border: 1px solid var(--border-pale); border-radius: 6px;
+  cursor: pointer; transition: all 0.25s ease; line-height: 1.5;
+}
+.test-option:hover { background: var(--paper-dark); border-color: var(--gold); color: var(--ink); }
+.test-option.selected { background: rgba(184,134,11,0.08); border-color: var(--navy); border-width: 2px; color: var(--navy); font-weight: 600; }
+.test-nav { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.test-result-phase { font-family: var(--font-display); font-size: 4rem; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; animation: resultReveal 1s ease-out; }
+@keyframes resultReveal { 0% { transform: scale(0.3); opacity: 0; } 60% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+.test-result-name { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.2rem; }
+.test-result-en { font-family: var(--font-display); font-size: 0.85rem; color: var(--ink-muted); letter-spacing: 0.06em; margin-bottom: 1rem; }
+.test-result-desc { color: var(--ink-light); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1.5rem; text-align: left; }
+.test-result-badge { display: inline-block; padding: 4px 16px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 1rem; }
+.badge-primary { background: rgba(90,122,154,0.12); color: var(--mask-color); }
+.badge-antithetical { background: rgba(184,134,11,0.12); color: var(--gold); }
+.result-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.gold { color: var(--gold); }
+.will-text { color: var(--will-color); }
+.mask-text { color: var(--mask-color); }
+.cm-text { color: var(--cm-color); }
+.bof-text { color: var(--bof-color); }
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 220px;
+  background: var(--paper-dark); border-right: 1px solid var(--border-pale);
+  z-index: 200; overflow-y: auto; overflow-x: hidden;
+  padding: 2rem 0 1.5rem;
+  box-shadow: 2px 0 20px rgba(61,43,31,0.06);
+  transition: transform 0.3s ease;
+}
+.sidebar-header {
+  text-align: center; padding: 0 1rem 1.2rem; margin-bottom: 1rem;
+  border-bottom: 2px double var(--border-pale);
+}
+.sidebar-header .s-logo {
+  font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.2em;
+  color: var(--ink-muted); margin-bottom: 0.3rem;
+}
+.sidebar-header .s-title {
+  font-family: var(--font-display); font-size: 0.95rem; color: var(--navy);
+  font-weight: 700; letter-spacing: 0.04em;
+}
+.sidebar-nav { list-style: none; padding: 0 0.8rem; }
+.sidebar-nav li { margin-bottom: 2px; }
+.sidebar-nav a {
+  display: flex; align-items: center; gap: 0.6rem; padding: 0.6rem 0.8rem;
+  text-decoration: none; color: var(--ink-light); font-size: 0.88rem;
+  border-radius: 6px; transition: all 0.3s ease;
+  font-family: var(--font-body-cn); position: relative;
+  border-left: 3px solid transparent;
+}
+.sidebar-nav a:hover {
+  background: rgba(184,134,11,0.06); color: var(--navy);
+  border-left-color: var(--gold-pale);
+}
+.sidebar-nav a.active {
+  background: rgba(26,39,68,0.06); color: var(--navy); font-weight: 700;
+  border-left-color: var(--navy);
+}
+.sidebar-nav a .nav-icon {
+  font-size: 1.1rem; width: 22px; text-align: center; flex-shrink: 0;
+}
+.sidebar-nav a .nav-num {
+  font-family: var(--font-display); font-size: 0.65rem; color: var(--ink-muted);
+  margin-left: auto; letter-spacing: 0.06em;
+}
+/* Active indicator dot */
+.sidebar-nav a.active::after {
+  content: ''; position: absolute; right: 0.5rem; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--navy);
+}
+
+/* Content area offset */
+.content-area { margin-left: 220px; min-height: 100vh; }
+
+/* Mobile sidebar toggle */
+.sidebar-toggle {
+  display: none; position: fixed; top: 1rem; left: 1rem; z-index: 300;
+  width: 40px; height: 40px; background: var(--paper); border: 1px solid var(--border-pale);
+  border-radius: 6px; cursor: pointer; font-size: 1.3rem; color: var(--navy);
+  align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.animate-section {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.animate-section.visible {
+  opacity: 1; transform: translateY(0);
+}
+/* Stagger delay for children */
+.animate-stagger > * { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+.animate-stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(5) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(6) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+.animate-stagger.visible > *:nth-child(n+7) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   KEYWORD GLOW
+   ============================================================ */
+.glow-keyword {
+  display: inline-block; position: relative;
+  animation: keywordPulse 3s ease-in-out infinite;
+}
+@keyframes keywordPulse {
+  0%, 100% { text-shadow: 0 0 0 transparent; }
+  50% { text-shadow: 0 0 8px rgba(184,134,11,0.4), 0 0 2px rgba(184,134,11,0.15); }
+}
+.glow-keyword.gold-glow { color: var(--navy); font-weight: 700; }
+.glow-keyword.will-glow { color: var(--will-color); animation-delay: 0s; }
+.glow-keyword.mask-glow { color: var(--mask-color); animation-delay: 0.5s; }
+.glow-keyword.cm-glow { color: var(--cm-color); animation-delay: 1s; }
+.glow-keyword.bof-glow { color: var(--bof-color); animation-delay: 1.5s; }
+
+/* ============================================================
+   RICH CARD HOVER EFFECTS
+   ============================================================ */
+.phase-card {
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative; overflow: hidden;
+}
+.phase-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: 8px;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(184,134,11,0.08) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.phase-card:hover::after { opacity: 1; }
+.phase-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(61,43,31,0.12);
+  border-color: var(--navy);
+}
+.faculty-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.faculty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(61,43,31,0.14);
+}
+
+/* ============================================================
+   SMOOTH SCROLL PAGE TRANSITIONS
+   ============================================================ */
+html { scroll-behavior: smooth; }
+.section-divider { transition: width 0.5s ease; }
+.section-divider:hover { width: 280px; }
+
+/* ============================================================
+   ORNAMENTAL DROP CAP (richer version)
+   ============================================================ */
+.dropcap-rich::first-letter {
+  float: left; font-family: var(--font-display); font-size: 4.5rem; line-height: 0.7;
+  padding: 0.15em 0.12em 0 0; color: var(--navy); font-weight: 900;
+  text-shadow: 0 2px 0 var(--gold-pale);
+}
+
+/* ============================================================
+   FLOATING PARTICLES (decorative gold dust)
+   ============================================================ */
+.particle-container { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.particle {
+  position: absolute; width: 3px; height: 3px; border-radius: 50%;
+  background: var(--gold-pale); opacity: 0;
+  animation: floatUp 8s linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-toggle { display: flex; }
+  .content-area { margin-left: 0; padding: 0 1rem; }
+  .compass-section { flex-direction: column; padding: 1rem; }
+  .compass-col { min-width: unset; width: 100%; }
+  .detail-col { min-width: unset; max-height: none; width: 100%; }
+  #compassCanvas { width: 100% !important; height: auto !important; }
+  .faculties-grid { grid-template-columns: 1fr; }
+  .phase-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .hero { min-height: auto; padding: 4rem 1.5rem 3rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .container { padding: 0 1rem; }
+  .axis-row { flex-direction: column; }
+  .section { padding: 2.5rem 0; }
+}
+@media (max-width: 600px) {
+  .test-section { padding: 1.5rem 0.8rem; }
+  .test-question-text { font-size: 1rem; }
+  .test-option { padding: 0.8rem 0.8rem; font-size: 0.88rem; }
+  .hero-intro { font-size: 0.9rem; }
+  .data-table { font-size: 0.75rem; }
+  .data-table th, .data-table td { padding: 0.5rem 0.3rem; }
+  .faculty-card { padding: 1.2rem; }
+}
+
+/* V2 Test Elements */
+.opt-tag{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;background:var(--navy);color:#fff;font-size:0.7rem;font-weight:700;flex-shrink:0;margin-right:2px}
+/* V2 Quiz Elements */
+.progress-wrap{margin-bottom:1.5rem}
+.progress-bar{height:4px;background:var(--paper-dark);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--navy);transition:width .3s ease}
+.progress-text{font-size:0.75rem;color:var(--ink-muted);margin-top:0.3rem;text-align:right}
+.q-block{margin-bottom:2rem;opacity:0;transform:translateY(12px);transition:all .35s ease}
+.q-block.show{opacity:1;transform:translateY(0)}
+.q-num{font-family:var(--font-display);font-size:0.75rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:0.3rem}
+.q-text{font-size:1rem;color:var(--ink);margin-bottom:0.8rem;line-height:1.7;font-weight:500}
+.opts{display:flex;flex-direction:column;gap:0.4rem}
+.opt{display:flex;align-items:flex-start;gap:0.6rem;padding:0.6rem 0.8rem;border:1px solid var(--border-pale);border-radius:6px;cursor:pointer;transition:all .2s ease;background:var(--paper-light);font-size:0.88rem;color:var(--ink-light)}
+.opt:hover{border-color:var(--navy);background:var(--paper-dark)}
+.opt.sel{border-color:var(--navy);border-width:2px;background:rgba(26,39,68,0.04);color:var(--navy);font-weight:600}
+.opt-tag{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:0.65rem;font-weight:700;flex-shrink:0}
+.btn-wrap{text-align:center;margin:2rem 0}
+.btn{display:inline-block;padding:0.7rem 2rem;font-family:var(--font-display);font-size:0.9rem;color:#fff;background:var(--navy);border:none;border-radius:4px;cursor:pointer;letter-spacing:0.06em;font-weight:700;transition:all .3s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,39,68,0.2)}
+.btn:disabled{opacity:0.3;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.sec{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.btn.sec:hover{background:var(--navy);color:#fff}
+.wheel-container{display:flex;justify-content:center;margin:1rem 0}
+.wheel-svg{max-width:100%}
+.vector-box{display:flex;gap:0.8rem;flex-wrap:wrap;margin:1rem 0}
+.vector-card{flex:1;min-width:150px;background:var(--paper-dark);padding:0.6rem 0.8rem;border-radius:6px;border-left:3px solid var(--will);font-size:0.82rem;text-align:left}
+.vector-card strong{display:block;margin-bottom:0.2rem;color:var(--navy)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     FLOATING PARTICLES
+     ============================================================ -->
+<div class="particle-container" id="particles" aria-hidden="true"></div>
+
+<!-- ============================================================
+     MOBILE SIDEBAR TOGGLE
+     ============================================================ -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="导航菜单" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<!-- ============================================================
+     SIDEBAR NAVIGATION
+     ============================================================ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="s-logo">W. B. YEATS</div>
+    <div class="s-title">幻象导读</div>
+  </div>
+  <ul class="sidebar-nav">
+    <li><a href="#hero" data-section="hero"><span class="nav-icon">☉</span>开篇总览<span class="nav-num">I</span></a></li>
+    <li><a href="#hero" data-section="hero"><span class="nav-icon">◈</span>双锥体与宇宙<span class="nav-num">II</span></a></li>
+    <li><a href="#test-section" data-section="test-section"><span class="nav-icon">✦</span>自我探索<span class="nav-num">III</span></a></li>
+    <li><a href="#compass-section" data-section="compass-section"><span class="nav-icon">⌬</span>互动罗盘<span class="nav-num">IV</span></a></li>
+    <li><a href="#faculties" data-section="faculties"><span class="nav-icon">⚙</span>四大机能<span class="nav-num">V</span></a></li>
+    <li><a href="#phase-grid-section" data-section="phase-grid-section"><span class="nav-icon">⊚</span>二十八相位<span class="nav-num">VI</span></a></li>
+    <li><a href="#concepts" data-section="concepts"><span class="nav-icon">※</span>核心概念<span class="nav-num">VII</span></a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main class="content-area">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <p class="hero-subtitle">W. B. YEATS &nbsp;·&nbsp; A VISION</p>
+  <h1>内在的几何</h1>
+  <p class="hero-author">一份基于叶芝《幻象》的内在结构报告</p>
+
+  <div class="hero-intro" style="text-align:center;">
+    <p style="text-indent:0;font-size:1.05rem;color:var(--ink);max-width:640px;margin:1.5rem auto;line-height:2;">
+      《幻象》（<em>A Vision</em>, 1937）是叶芝基于其妻子乔治的自动书写所整理的一部哲学著作。其核心是一个由<strong>二十八个"月相"</strong>构成的循环体系——叶芝称之为"巨轮"（The Great Wheel）。巨轮上的每个相位由四种内在力量的相互作用所定义：<strong>意志</strong>（当下的自我）、<strong>面具</strong>（渴望成为的理想）、<strong>创造性心灵</strong>（理解世界的方式）和<strong>命定的躯体</strong>（外部环境施加的必然性）。叶芝用这一体系解释个体性格的差异、人生轨迹的变迁，以及文明历史的周期运动。
+    </p>
+    <p style="text-indent:0;color:var(--ink-muted);max-width:500px;margin:0 auto 2rem;">
+      以下20道测试题是基于四大机能的维度设计，帮助你探索自己在巨轮上的大致相位。约需 <strong>3 分钟</strong>。
+    </p>
+    <button class="test-btn" onclick="document.getElementById('test-section').scrollIntoView({behavior:'smooth'})" style="font-size:1.1rem;padding:1rem 3rem;">
+      开始探索 ✦
+    </button>
+  </div>
+
+  <div class="source-note" style="margin-top:3rem;">
+    <strong>关于内容来源</strong><br>
+    相位编号、四大机能的几何关系、真/假面具关键词及历史人物例证，均核对自《幻象》（<em>A Vision</em>, 1937 年终修订版）。相位中文描述为基于原著概念的阐释性扩展，非逐句翻译。心理测试为基于四大机能维度的创意性探索工具。
+  </div>
+</section>
+
+<!-- ============================================================
+     PSYCHOLOGICAL TEST: 发现你的相位
+     ============================================================ -->
+<section class="section container animate-section" id="test-section">
+  <h2>自我探索：你在二十八相位中的位置</h2>
+  <p style="color:var(--ink-muted);margin-bottom:1.5rem;text-align:center;">
+    以下 20 组迫选题基于正交双轴圆环模型（X轴-意志/命定躯体；Y轴-面具/创造性心灵）。完成后，系统自动计算极化积分并锁定相位。结果仅供娱乐，不构成任何形式的专业心理指导。
+  </p>
+  <div class="test-section" id="testApp"></div>
+</section>
+
+<!-- ============================================================
+     INTERACTIVE COMPASS
+     ============================================================ -->
+<section class="section container animate-section" id="compass-section">
+  <h2>月相巨轮 · 互动罗盘</h2>
+  <p style="color:var(--ink-muted);margin-bottom:1.5rem;">点击罗盘上的任意相位标记，右侧展示该相位下四大机能的详细状态。四个彩色光点代表<span class="glow-keyword will-glow">意志</span>（赤陶）、<span class="glow-keyword mask-glow">面具</span>（灰蓝）、<span class="glow-keyword cm-glow">创造性心灵</span>（深蓝）、<span class="glow-keyword bof-glow">命定躯体</span>（暗红），位置由几何公式从所选相位自动推导。</p>
+
+  <div class="compass-section">
+    <div class="compass-col">
+      <canvas id="compassCanvas" width="560" height="560" aria-label="月相巨轮互动罗盘"></canvas>
+      <div class="faculty-legend">
+        <div class="legend-item"><span class="legend-dot w"></span> 意志 Will</div>
+        <div class="legend-item"><span class="legend-dot m"></span> 面具 Mask</div>
+        <div class="legend-item"><span class="legend-dot c"></span> 创造性心灵 CM</div>
+        <div class="legend-item"><span class="legend-dot b"></span> 命定的躯体 BoF</div>
+      </div>
+    </div>
+    <div class="detail-col" id="detailPanel">
+      <div class="detail-panel" id="detailContent">
+        <div class="detail-phase-number" id="detailNum">—</div>
+        <div class="detail-phase-name" id="detailName">点击罗盘上的相位</div>
+        <div class="detail-phase-en" id="detailEn"></div>
+        <p style="color:var(--ink-muted);font-size:0.9rem;">选择一个相位以查看四大机能在该相位下的具体配置与灵魂格局。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     FOUR FACULTIES DEEP DIVE
+     ============================================================ -->
+<section class="section container animate-stagger" id="faculties">
+  <h2>运行的齿轮：关于四大机能</h2>
+  <p style="color:var(--ink-light);margin-bottom:1.5rem;">
+    如果说"双锥体"是《幻象》中推动宇宙运转的永恒引擎，那么<strong>四大机能（The Four Faculties）</strong>就是这台引擎安装在人类灵魂与历史肉身内部的四个精密齿轮。叶芝认为，世间万物——包括每个人的性格与遭遇——都不是单一维度的显现，而是这四个齿轮在二十八个相位的巨轮上，通过复杂的几何互锁、对立与拉扯所产生的动态结果。
+  </p>
+
+  <div class="axis-row">
+    <div class="axis-box subjective">
+      <h4 style="color:var(--navy);margin-top:0;font-family:var(--font-display);">主观轴线（月亮轴线）</h4>
+      <p style="color:var(--ink-light);font-size:0.95rem;">
+        包含 <strong style="color:var(--will-color);">意志（Will）</strong> 与 <strong style="color:var(--mask-color);">面具（Mask）</strong>。它们处理灵魂<em>"想要成为什么"</em>以及<em>"如何感知自我"</em>的内在戏剧。这一轴线代表了叶芝所谓的<strong>"反题性"（Antithetical）</strong>能量——向内看、向上攀升、朝向个体性的完满。
+      </p>
+    </div>
+    <div class="axis-box objective">
+      <h4 style="color:var(--ink-light);margin-top:0;font-family:var(--font-display);">客观轴线（太阳轴线）</h4>
+      <p style="color:var(--ink-light);font-size:0.95rem;">
+        包含 <strong style="color:var(--cm-color);">创造性心灵（Creative Mind）</strong> 与 <strong style="color:var(--bof-color);">命定的躯体（Body of Fate）</strong>。它们处理灵魂<em>"如何理解世界"</em>以及<em>"被迫接受何种现实"</em>的外在遭遇。这一轴线代表了<strong>"题性"（Primary）</strong>能量——向外看、向下扎根、朝向集体与秩序的消融。
+      </p>
+    </div>
+  </div>
+
+  <div class="faculties-grid">
+    <!-- WILL -->
+    <div class="faculty-card will-card">
+      <div class="faculty-card-icon">☉</div>
+      <h3 style="color:var(--will-color);">意志</h3>
+      <p class="en-name">Will</p>
+      <p>在叶芝的系统中，<strong>意志是未被雕琢的生命欲求、本能偏好与选择的起点</strong>。它是"当下的我"——那个尚未成为任何事物的、充满原始能量的内核。意志决定了灵魂在巨轮上所处的初始相位。它并不善良，也不邪恶；它是纯粹的<strong>生命初动力</strong>，如同奔流而下的河水，只知其去向而不问其对错。</p>
+      <p>叶芝将意志视为人类意识中最古老的层次。它包含了遗传的本能、未被反思的欲望、以及灵魂在无数次转世中积累的倾向。没有意志，灵魂便无从启动其在历史与生命中的漫长征程。在巨轮上，意志按顺时针方向运转，像一个雷达般寻找能够使其显化、令其满足的客体。</p>
+      <p>在《幻象》原文中，叶芝写道：<em>"意志是未经任何形式的感受（feeling）渗透的赤裸能量……它是灵魂在选择之前的状态，是命运开始之前的那个瞬间。"</em>正是在这一点上，意志与叔本华的"盲目意志"以及柏格森的"生命冲动"产生了深刻的共鸣。叶芝将这种哲学直觉转化为了一个可操作的几何系统——意志在巨轮上的位置，决定了整个灵魂格局的基调。</p>
+    </div>
+
+    <!-- MASK -->
+    <div class="faculty-card mask-card">
+      <div class="faculty-card-icon">☽</div>
+      <h3 style="color:var(--mask-color);">面具</h3>
+      <p class="en-name">Mask</p>
+      <p><strong>"面具"是意志所渴望成为的理想形象，也是意志的对立面。</strong>叶芝有一句名言：<em>"我们通过寻找对立面来发现自我。"</em>面具就是那个由艺术、想象和防卫机制共同编织出来的<strong>"理想的我"</strong>——它既是渴望的目标，也是永远无法完全抵达的幻影。</p>
+      <p>在几何运动上，面具与意志呈现<strong>镜像对称</strong>——以第15相位（满月）与第1相位（新月）的连线为轴，意志与面具的位置相加恒定等于30。这意味着：当意志处于粗糙、本能、接近客观的低位相位时，它所渴望的面具必然是高尚、精神化、接近满月的理想形态。反之亦然——越是接近完满的灵魂，其面具反而越趋向朴素与单纯。</p>
+      <p>面具分为两种关键状态：<strong>真实面具（True Mask）</strong>是灵魂通过艰苦的艺术创作或自我反思而主动选择并赢得的真正互补自我——如悲剧英雄在毁灭中获得尊严；<strong>虚假面具（False Mask）</strong>则是灵魂因恐惧外部世界而被迫戴上的伪装，表现为盲目的模仿、虚荣或毫无意义的自我妥协。在叶芝看来，大多数人的一生都在虚假面具中度过，只有少数灵魂——通常是艺术家、圣徒或英雄——能够穿透虚妄，触及真实面具。</p>
+    </div>
+
+    <!-- CREATIVE MIND -->
+    <div class="faculty-card cm-card">
+      <div class="faculty-card-icon">✧</div>
+      <h3 style="color:var(--cm-color);">创造性心灵</h3>
+      <p class="en-name">Creative Mind</p>
+      <p>如果说意志是感性和欲望的源泉，那么<strong>创造性心灵就是理智、智力与知识的武器</strong>。它代表了灵魂处理逻辑、科学、哲学以及从过去继承的思想遗产的能力。它指明了<em>"灵魂如何通过思考来理解事物"</em>——以及在多大程度上，理智会服务于欲望，或反过来压制欲望。</p>
+      <p>叶芝对这一概念的洞察极其精微：<strong>在主观相位（接近满月）</strong>，创造性心灵完全沦为意志的工具，被用来创作神话、诗歌和象征符号——理智变成了美的仆从，一切逻辑都服务于内在幻象的建构；<strong>而在客观相位（接近新月）</strong>，创造性心灵则反客为主，压制意志的热望，迫使个体服从于科学定律、社会建制和集体规范。理智不再是仆从，而成为主人。</p>
+      <p>这正是叶芝对现代性最深刻的批判所在：现代世界的问题不在于"不够理性"，而恰恰在于<strong>创造性心灵僭越了它的位置</strong>，将量化分析和工具理性推向了暴政的地位，使意志——灵魂的初火——被客观规则的铁笼所窒息。在《幻象》中，这一过程被几何化地绘制为巨轮上从满月向新月的移动轨迹。</p>
+    </div>
+
+    <!-- BODY OF FATE -->
+    <div class="faculty-card bof-card">
+      <div class="faculty-card-icon">◈</div>
+      <h3 style="color:var(--bof-color);">命定的躯体</h3>
+      <p class="en-name">Body of Fate</p>
+      <p><strong>"命定的躯体"是整个系统中最具表现力的概念。</strong>叶芝将其定义为<em>"外部世界强加于灵魂的所有必然性"</em>——包含你无法选择的出生时代、你的肉身限制（疾病、衰老）、你遭遇的战争或灾难，以及所有不受你意志控制的外部现实。一言以蔽之，它是<em>"世界逼你面对的宿命"</em>。</p>
+      <p>命定的躯体呈现三种动态演变模式：</p>
+      <p><strong>主观极值下（满月，第15相位）：</strong>个体的内在美学和精神力量膨胀到极点。外部物理现实对灵魂失去了重力，命定的躯体在几何图表上收缩成一个微弱的点。对这个阶段的灵魂——如极致的神秘主义者或纯粹艺术家——而言，物质世界只是一场可以随心所欲涂抹的<strong>梦境，宿命被内心彻底融化</strong>。</p>
+      <p><strong>中庸相位下（第13–17相位）：</strong>意志与命定的躯体保持着一种优雅而充满张力的对抗。外部现实作为严酷但美丽的背景存在，不断给意志带来痛苦和阻碍，而这种痛苦恰恰被创造性心灵转化为伟大的<strong>悲剧艺术</strong>。现实在这里是激发自我的粗砺磨刀石。</p>
+      <p><strong>客观极值下（新月，第1相位）：</strong>集体的秩序和物理重力全面复苏。命定的躯体疯狂向外扩张，演变为一个将整个巨轮死死锁住的压迫性外圈。个体的意志被压缩到极限，变成一颗无足轻重的沙粒——它表现为<strong>绝对的、不可抗拒的宿命</strong>：极权的社会体制、不可治愈的绝症、无法逃脱的历史洪流。</p>
+    </div>
+  </div>
+
+
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     PHASE GRID
+     ============================================================ -->
+<section class="section container animate-section" id="phase-grid-section">
+  <h2>二十八相位全览</h2>
+  <p style="color:var(--ink-muted);margin-bottom:1.5rem;">
+    以下列出全部二十八个相位。点击任意卡片可直接跳转到罗盘上对应的相位详情。第1–14相位为<strong style="color:var(--ink-muted);">客观半区（趋向满月）</strong>，第15相位为<strong style="color:var(--gold);">满月顶点的纯粹主观</strong>，第16–28相位为<strong style="color:var(--gold);">主观半区（趋向新月）</strong>。
+  </p>
+
+  <div class="phase-grid" id="phaseGrid"></div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ============================================================
+     KEY CONCEPTS
+     ============================================================ -->
+<section class="section container animate-section" id="concepts">
+  <h2>核心概念补遗</h2>
+
+  <div class="concept-box">
+    <h4>双锥体（The Gyres / Double Cone）</h4>
+    <p>双锥体是《幻象》中最根本的宇宙模型。想象两个顶点相接、方向相反的圆锥体——一个代表<strong>主观（Antithetical）</strong>的扩张，另一个代表<strong>客观（Primary）</strong>的扩张。历史与灵魂就在这两个锥体之间螺旋运动。当一个锥体膨胀至极限（文明、个体或时代的巅峰），另一个锥体已在其内部萌发，准备取而代之。叶芝由此推导出他对<strong>两千年历史周期</strong>的著名论断：古典文明（约公元前2000年–公元元年）是一个主观锥体的完整呼吸，而基督教文明（公元元年–约公元2000年）则是对应的客观锥体。在叶芝写作《幻象》的二十世纪二十年代，他坚信一个新的、暴烈的<strong>主观时代</strong>正在降临。</p>
+  </div>
+
+  <div class="concept-box">
+    <h4>存在的统一（Unity of Being）</h4>
+    <p>在第15相位（满月），意志、面具、创造性心灵与命定的躯体达成了一种<strong>瞬间的完美平衡</strong>——叶芝称这为"存在的统一"。在这一状态下，灵魂的所有力量不再互相撕裂，而是和谐地融入一个完整的整体。基督、佛陀、以及叶芝心目中某些极致的诗人（如但丁）都处于或接近这一状态。然而，存在的统一本质上<strong>不可持续</strong>——它只是一个瞬间，一个顶点，一旦抵达，巨轮的转动便已将其推向分解。叶芝本人深知自己处于第17相位（灵魔之人），虽然接近满月，但始终与之保持着痛苦的距离，而这种<strong>渴望与不可抵达之间的距离</strong>，恰恰构成了他最伟大的诗歌的源泉。</p>
+  </div>
+
+  <div class="concept-box">
+    <h4>灵魔（The Daimon / Anti-Self）</h4>
+    <p>在第17相位（灵魔之人）——叶芝自己的相位——灵魂体验到一种特殊的二元意识。<strong>"灵魔"（Daimon）</strong>不是基督教意义上的恶魔，而是苏格拉底式的"守护灵"（daimonion）——一个比自我更智慧、更完满的<strong>对立自我</strong>。叶芝写道：<em>"我称之为面具的东西，在其超自然形态中即为灵魔。"</em>灵魔是面具在神秘经验中的极限显现——它既是缪斯，也是审判者。创作者与灵魔的对话（或者说，意志与面具之间那种充满张力的求索），正是叶芝全部诗学的根本动力结构。在《幻象》的几何体系中，灵魔就是当面具与创造性心灵在第17相位产生特殊共振时所释放出的那束光。</p>
+  </div>
+
+  <div class="concept-box">
+    <h4>真实面具与虚假面具</h4>
+    <p>在每一个相位，面具都存在着"真实"与"虚假"两种可能。真实面具是<strong>经由艰苦的内在劳作而赢得的</strong>，它是对抗意志之片面性的真正互补力量。虚假面具则是<strong>被外部压力或惯性所塑造的</strong>——它是一种逃避，一种表演，一种对自我的背叛。叶芝认为，灵魂在世间最重要的任务就是不断辨识自己的虚假面具，并将其剥落，以趋向真实面具。然而，<strong>真实面具永远不可能被完全拥有</strong>——它始终是一种"渴望"，一道永远在后退的地平线。正如叶芝在《在学童中间》中所写：<em>"我们怎能从舞蹈中辨认出舞者？"</em>——面具（舞蹈）与意志（舞者）之间的分野，最终在满月的刹那融合中消解，但那一刹那本身就是永恒的代价。</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<footer style="text-align:center;padding:3rem 1rem;color:var(--ink-muted);font-size:0.85rem;">
+  <p>基于叶芝《幻象》（<em>A Vision</em>, 1937 年终修订版）构建 · 仅供娱乐 · 感兴趣请购买原著译本《幻象·生命的阐释》</p>
+  <p style="margin-top:0.5rem;">威廉·巴特勒·叶芝（William Butler Yeats, 1865–1939）· 诺贝尔文学奖得主、诗人、神秘主义者、爱尔兰文艺复兴领袖与国会议员。</p>
+  <p style="margin-top:1rem;font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.06em;">@灰烬马戏团</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+
+
+
+
+
+
+
+
+
+// ====================================================================
+// PHASE DATA — 28 phases with full faculty details
+// ====================================================================
+
+const phaseData = [
+  {
+    id: 1, name: "无形之体", nameEn: "The Formless Body",
+    tendency: "primary",
+    will: "意志完全消融于客观之海。尚无个体意志的萌芽，灵魂是一片等待被塑形的纯粹质料。",
+    mask: "与意志重合——既然没有自我，也就无所谓渴望。面具尚未产生，因为还没有需要掩饰或向往的任何东西。",
+    creativeMind: "纯粹的被动接纳性。创造性心灵如同一张白纸，等待来自外部世界的第一次书写。它不思考，只记录。",
+    bodyOfFate: "宇宙的绝对支配。命定的躯体在此处达到最大值——不是「压迫」，而是「包裹」。个体尚未诞生，因而没有内外之分，一切都是外部。",
+    description: "第一相位是巨轮上最黑暗的时刻——新月。这是一个灵魂尚未获得肉身的临界状态。叶芝将其描述为「完全的可塑性」（Complete Plasticity）：灵魂没有任何固定的形式，可以被塑造成任何形态。这既是最大限度的自由（因为没有约束），也是最大限度的束缚（因为没有选择的能力）。在人类经验中，这一相位并不对应活着的个体，而是对应着灵魂投胎前或刚刚投胎的那个刹那——就像一块刚从矿脉中取出的矿石，尚未被任何工匠触碰。从历史上看，第1相位对应着文明的开端——那些还完全被自然环境所塑造、尚未产生个体自我意识的原始状态。",
+    examples: "灵魂投胎前的境界；文明诞生前的混沌；纯粹的物质性存在"
+  },
+  {
+    id: 2, name: "初生之体", nameEn: "The First Body",
+    tendency: "primary",
+    will: "意志开始出现微弱的脉动——如同一颗刚刚点燃的火星，随时可能被风吹灭。这是最低限度的个体性。",
+    mask: "位于第28相位。面具在此处投射为「愚者」的形象——灵魂隐约渴望的是一种未受任何知识污染的纯粹状态，那是一种无意识的自由。",
+    creativeMind: "开始接收最简单的感官信息。创造性心灵如同一台刚刚启动的仪器，尚未校准，只能记录最基本的冷、暖、饥、饱。",
+    bodyOfFate: "依然占据绝对主导。命定的躯体就是整个世界本身——出生的环境、身体的初始条件、环绕四周的物质力量。",
+    description: "第二相位标志着身体的开端——在新月的纯粹黑暗之后，灵魂第一次获得了物质的外壳和感官的触角。意志在此处呈现为一种最低限度的生物性冲动：对温暖、食物和安全的本能需求，以及一种连灵魂自己都尚未意识到的、朝向光亮的微弱倾斜。叶芝在《幻象》中将这一阶段的灵魂比作「埋在泥土中、刚刚开始蠕动的种子」——它知道自己想要生长，但它完全不理解「向上」意味着什么，更不知道在泥土之上等待它的是阳光还是风霜。在宇宙尺度上，第2相位对应着文明的黎明时刻——人类刚刚从纯粹的自然存在中分化出最基本的「我」的感觉，但这种感觉还完全依附于身体和环境的即时反馈。叶芝还指出，第2相位与第28相位（愚者）构成镜像——一个是尚未有知的无知，另一个是历尽一切之后重返的无知，两者表面相似但深度迥异。",
+    examples: "初生的婴儿；文明中刚刚萌发的劳作意识；自然的、未经教化的本能生活"
+  },
+  {
+    id: 3, name: "萌动之志", nameEn: "The Stirring Will",
+    tendency: "primary",
+    will: "意志开始有方向性的冲动——开始产生「想要」的倾向，但还不清楚「想要什么」。一种模糊的、朝向某个未知方向的推力。",
+    mask: "位于第27相位。面具投射为「弃绝的圣人」——灵魂隐约渴望一种超越物质的纯净化，但自身还不具备实现这种渴望的手段。",
+    creativeMind: "开始产生最简单的区分能力——这是快乐，那是痛苦；这是安全的，那是危险的。初级智力开始在生存压力下成型。",
+    bodyOfFate: "依然笼罩一切，但开始在意志的冲击下产生第一道裂痕。外部世界仍然强大，但灵魂对它的屈服已不再绝对。",
+    description: "第三相位是野心与梦想的最初摇篮。灵魂在此处开始做「白日梦」——它不是有计划地想象未来，而是被一种朦胧的、连自己都无法命名的渴望所驱使。叶芝在《幻象》中描述了这种状态：「灵魂像一团尚未成形的雾气，它在风中移动，却不知道风从何处来，又将带它去往何处。」这种「未被言说的憧憬」是第三相位的核心情感基调。处于这一相位的人往往是沉默而内向的——他们感受到一种与生俱来的不足感，一种内心深处的不安，但他们还无法将这种不安转化为具体的追求。在叶芝的体系里，第3相位与第27相位（弃绝之圣）形成神秘的几何对应：一个是在完全的懵懂中隐约渴望精神高度，另一个则是在经历了一切之后主动选择了弃绝——两者的表象相似（沉静、内敛），但其内在深度有着质的区别。这是一个「诗人的胚胎」——所有的感觉都已就位，但还没有找到能承载它们的语言。",
+    examples: "做梦的少年；尚未找到表达方式的艺术家胚胎；农业文明中初步的个体意识"
+  },
+  {
+    id: 4, name: "欲望之始", nameEn: "Beginning of Desire",
+    tendency: "primary",
+    will: "意志开始明确地向外部世界伸出触角。它渴望占有、获取、拥有——对象可能是物质、可能是另一个身体、也可能是一种体验。",
+    mask: "位于第26相位。面具呈现为「驼背人」——灵魂渴望的是多样的可能性、多重的生活体验，但自身还被禁锢在单一的、笨拙的躯壳中。",
+    creativeMind: "智力开始为欲望服务。创造性心灵学会了如何「策划」——如何以一种基本的方式安排事物以满足意志的冲动。",
+    bodyOfFate: "开始呈现出具体的阻碍形态——不再是一片混沌的外部力量，而是特定的、可以命名的限制：贫穷、身份、地理的距离。",
+    description: "第四相位标志着欲望的真正诞生——不是被动的生理需求，而是主动的、带有方向性的求索。叶芝在《幻象》中这样描述这一相位的灵魂：「第一次真正意识到外部世界的诱惑力——它的光芒、它的气味、它的重量。」这可以是情欲的觉醒——对另一个身体的不可抑制的渴望；可以是对财富和权力的最初试探——在物质世界的镜厅中迷失；也可以是对某种体验的迷醉——在感官的洪流中沉浮。但叶芝同时冷静地指出：在这一相位，灵魂的力量还很有限。它的欲望很大，但手段很少；它的渴望是真挚的，但它的行动往往是笨拙甚至滑稽的——这正是拉伯雷（Rabelais）笔下那些饕餮的、放纵的、生命力溢出边界的人物所对应的相位层次。在每一个文明的历史中，第4相位都对应着物质主义兴起但尚未被精神性所平衡的阶段。",
+    examples: "初尝欲望的青年；新兴阶级对权力的初步诉求；浪漫主义之前的感性觉醒"
+  },
+  {
+    id: 5, name: "挣扎之灵", nameEn: "The Struggling Spirit",
+    tendency: "primary",
+    will: "意志开始与外部世界展开正面交锋。它不再只是「想要」，而是开始「争取」。这是灵魂的第一场战斗。",
+    mask: "位于第25相位。面具投射为「多重之人」——灵魂隐约向往一种能够同时驾驭多线生活的能力，一种将分散力量统合起来的组织力。",
+    creativeMind: "开始发展策略性思维。创造性心灵不再只是记录和策划，而是学会了在失败中调整方案——它开始具有适应性。",
+    bodyOfFate: "一个明确的对手。命定的躯体在此处不是一片迷雾，而是一个可以辨识的敌人——或者说，摔跤对手。",
+    description: "第五相位是灵魂的第一场真正的战役。意志在此处已经积蓄了足够的能量来正面冲击外部世界的壁垒，但还远远未到可以取胜的程度。叶芝将这一相位的核心经验精辟地概括为一个词：「挫折」（Frustration）。每一次冲撞都以失败告终——但这种失败并非徒劳的，每一次被击退都使意志变得更加凝聚和有力，正如铁砧上的金属在被反复锤打之后变得更加致密。在《幻象》的结构中，第五相位与第二十五相位（多重之人）互为镜像：一个是在单一方向上倔强地、甚至笨拙地反复冲击；另一个则是在多个方向上分散了自己的力量。第五相位的灵魂通常表现出一种「笨拙的执拗」——他可能显得固执、不灵活、不知变通，但在这种表面上的僵硬之中，隐藏着未来人格成型所需的一切原始材料。叶芝暗示，许多伟大的改革者和开拓者都经过了第五相位式的早期人生阶段：在那个阶段中，他们还没有找到正确的方法，但他们已经拥有了不会放弃的决心。",
+    examples: "屡败屡战的初学者；在困境中挣扎的底层灵魂；文明的开拓阶段——与自然力的搏斗"
+  },
+  {
+    id: 6, name: "张力之魂", nameEn: "The Tense Soul",
+    tendency: "primary",
+    will: "意志进入一种紧绷的对峙状态。它已经学会了控制它的冲动，并将能量积蓄在内部，像一张拉满的弓，等待释放的时机。",
+    mask: "位于第24相位。面具呈现为「组织者」——灵魂渴望的是秩序、结构和纪律，一种能将内在张力转化为外部成果的能力。",
+    creativeMind: "开始系统化思维。创造性心灵学会了分类、比较和归纳——它开始构建初步的世界观框架，虽然这个框架还很粗糙。",
+    bodyOfFate: "与意志处于僵持状态。外部力量仍然强大，但意志已经找到了对抗它的杠杆支点。这是一个脆弱的平衡。",
+    description: "第六相位是一个内部高度紧张的相位——意志进入了一种紧绷的对峙状态。它已经学会了控制它的冲动，并将能量积蓄在内部，像一张拉满的弓，箭已在弦，但释放的时机尚未到来。叶芝用猎人的形象来比拟这一相位：「在暗处屏息凝神，肌肉紧绷，但发出的唯一声响是沉默。」这种表面的平静与其下的暗涌形成了巨大的张力。在创造性工作中，第六相位对应着「孵化期」——所有的素材都已收集完毕，所有的问题都已被清晰地感知，但答案和作品的形式尚未诞生。它也是一个智力开始系统化的相位：创造性心灵学会了分类、比较和归纳，开始构建初步的世界观框架。在历史上，第6相位对应着文明中理论体系初创的阶段——尚未成熟，但框架的骨架已经搭好。叶芝指出，第6相位的人最深的危险在于：他们可能永远停留在「蓄势待发」的状态中而从未真正「发」出去。",
+    examples: "即将爆发的改革者；酝酿杰作的艺术家；暴风雨前的寂静"
+  },
+  {
+    id: 7, name: "逼近平衡", nameEn: "Approaching Balance",
+    tendency: "primary",
+    will: "意志达到客观半区上半段的最高强度。它在对抗外部世界的过程中变得锋利而精确，但尚未失去与地面接触的踏实感。",
+    mask: "位于第23相位。面具投射为「接纳之人」——灵魂渴望的是一种开放而包容的智慧，一种能够在纷繁中保持宁静的内在定力。",
+    creativeMind: "开始发展抽象思维能力。创造性心灵不再仅服务于即时欲望，而是开始探寻「为什么」——哲学的种子在此处播下。",
+    bodyOfFate: "外部世界的阻力开始减弱——不是因为命运变弱了，而是因为意志变强了。两者正在趋向一个等势点。",
+    description: "第七相位是客观半区上半段的关键转折点——意志与命定的躯体在此处达到了力量的大致均衡。灵魂不再感到自己被外部世界碾压（那是第1-4相位的事），但它的内在力量也还没有强大到足以超越外部限制（那是第13-15相位的领域）。叶芝将这一相位称为「常识的王国」——处于此相位的灵魂通常具有强大的现实感和健康的实践能力。他们既不被原始欲望所淹没，也不被过度发达的理智所冻结；他们在一个可以触及的范围内高效运作，对人生有一种不卑不亢的把握。但在这个务实王国的深处，一种对超越的渴望正在悄然滋长——第7相位的人隐约意识到，「常识」虽然可靠，却无法回答关于意义的终极追问。这种对更高层面的预感，为接下来的第8相位（战士/猎手）的爆发性行动积蓄着燃料。在叶芝的体系中，第7相位对应着文艺复兴前夜的那种精神状态——一切都在平稳地运作，但在这种平稳之下，一场巨大的、朝向个体性和自我表达的精神爆发正在酝酿。",
+    examples: "成功但不安于现状的中坚力量；接近觉醒的务实者；文艺复兴前夜的工匠精神"
+  },
+  {
+    id: 8, name: "战士 / 猎手", nameEn: "The Warrior / Hunter",
+    tendency: "primary",
+    will: "意志爆发出强大的征服欲。它已经积蓄了足够的能量，现在它将这股能量向外投射——以战斗、征服或自我牺牲的形式。",
+    mask: "位于第22相位。面具投射为「受害者」——战士渴望的恰是被他征服的对象的品质：脆弱、敏感、被动地承受。这是一种深层的心理补偿。",
+    creativeMind: "发展出战术性智力。创造性心灵学会了如何「打赢」——如何以最小的代价达成目标，如何利用对手的弱点。这是一种高度实用的理性。",
+    bodyOfFate: "被意志正面冲击，但并未崩溃。命定的躯体在此处化作一个「值得一战的对手」——它为战斗提供了舞台和意义。",
+    description: "第八相位是巨轮上第一个至关重要的转折点。如果说前面的七个相位是意志从客观之海中逐渐浮现的过程，那么第八相位就是意志第一次<strong>主动出击</strong>的时刻。叶芝将这一相位的人比作「投掷标枪的猎手」或「冲向敌阵的战士」——他们的生命通过对抗来定义自身。第八相位的关键悖论在于：<strong>战士渴望成为受害者</strong>——他最深层的面具（第22相位「受害者」）驱使他走向自我牺牲。这正是所有悲剧英雄的内在结构：他们在胜利的巅峰埋下了毁灭的种子，因为他们最深处的渴望恰恰是被他们所征服的力量所吞噬。原著将陀思妥耶夫斯基笔下的「白痴」（梅什金公爵）列为此相位的例证：一个在持续的危机中无法创造任何持久之物、却在最深的无力中孕育着转变种子的灵魂。",
+    examples: "陀思妥耶夫斯基《白痴》中的梅什金公爵；悲剧英雄；为事业献身的行动者"
+  },
+  {
+    id: 9, name: "信仰之魂", nameEn: "The Soul of Belief",
+    tendency: "primary",
+    will: "意志开始从纯粹的征服转向意义的寻求。力量依然强大，但方向开始从「对抗」转向「归属」——从战斗转向信仰。",
+    mask: "位于第21相位。面具投射为「获取之人」——灵魂渴望的是一种能够把握、储存和积累的能力。信仰者渴望他所信仰之物的「确定性」。",
+    creativeMind: "开始将经验转化为信念。创造性心灵在此处学会了从碎片化的战斗中提取出抽象的原则——从「我打赢了」到「什么是胜利」。",
+    bodyOfFate: "不再是单纯的对手，而开始呈现为一个可以融入的秩序。外部世界仍然强大，但灵魂正在寻找一种与之共处的方式。",
+    description: "第九相位代表着从纯粹的争斗向更高层次的意义建构的过渡。经历了第8相位的正面冲撞之后，灵魂开始追问一个更深的问题：<strong>「胜利是为了什么？」</strong>叶芝将这一相位与「信仰的诞生」联系在一起——不是盲目的信仰，不是教条的皈依，而是经过战斗和鲜血检验之后自发产生的信念。在第9相位，创造性心灵发生了一个关键性的转变：它不再仅仅服务于战术层面的「如何打赢」，而是开始从碎片化的经验中提取抽象的原则——从「我打赢了」上升到「什么是真正值得为之而战的胜利」。「处于这一相位的人通常具有强烈的道德感和对秩序的渴求——他们从战士转变为了骑士。他们的力量被注入了使命感和荣誉感，但他们同时也面临着一个独特的危险：当信仰变得过于坚固，它可能变成僵化的教条——从」我相信「滑向」你必须相信「。叶芝暗示，第9相位在最高境界上是十字军骑士般的高贵灵魂；在最低境界上则沦为宗教裁判官式的狂热分子。",
+    examples: "从战场归来的老兵转向精神追求；十字军骑士；信仰坚定的社会改革者"
+  },
+  {
+    id: 10, name: "破像者", nameEn: "The Image-Breaker",
+    tendency: "primary",
+    will: "意志开始质疑一切既定的形式。它的力量已经强大到不再需要依靠外部权威，但也还没有完全找到自己的内在锚点。",
+    mask: "位于第20相位。面具投射为「务实之人」——灵魂隐约渴望一种精确的、可操作的掌控力。打破偶像的人渴望的恰恰是他自己所不具备的「稳定」。",
+    creativeMind: "发展出批判性思维的锋芒。创造性心灵学会了「拆解」——将复杂的系统还原为基本元素，将神圣的叙事揭露为权力的建构。",
+    bodyOfFate: "在意志的冲击下开始碎裂。命定的躯体在此处表现为所有那些「被质疑的传统」——它们曾是支撑，现在变成了牢笼。",
+    description: "第十相位是偶像破坏者的相位——意志已经积蓄了足够的力量，开始撼动那些曾经被普遍视为不可动摇的权威：宗教、传统、家庭、制度。叶芝在《幻象》中将这一相位的人称为「砸碎雕像的人」（The Image-Breaker）：他们有一种近乎本能的需求去摧毁旧的形式，但他们摧毁旧形式的目的不是虚无主义的狂欢，而是为了「为尚未诞生的新形式腾出空间」。原著明确将爱尔兰政治家<strong>帕内尔（Charles Stewart Parnell）</strong>列为此相位的首要例证——一个外表冷漠、内心却在撕碎自己的悲剧性破坏者。帕内尔的同时代人约翰·莫利说他「拥有他所见过的最不散漫的头脑」，而帕内尔的一位追随者则记录道：在一次看似冷酷无情的演讲之后，他的双手布满鲜血，因为他把自己的指甲都撕破了。这正是第10相位的典型悖论——外在的冷硬与内在的剧烈自我撕裂并存。在最高境界上，第10相位的人是革命先驱；在最低境界上，沦为愤世嫉俗的虚无主义者。叶芝特别强调第10相位与第20相位（务实之人）的对称关系：破像者拆解，务实者建造；一个负责否定，一个负责肯定——两者在文明的巨轮上交替登场。",
+    examples: "帕内尔（Charles Stewart Parnell）——原著列为首要例证；宗教改革者；先锋派打破传统的艺术家"
+  },
+  {
+    id: 11, name: "半渡之魂", nameEn: "The Halfway Soul",
+    tendency: "primary",
+    will: "意志站在客观与主观的分水岭上。它已经走得够远，可以回头看到来路，也可以向前眺望去路。这是一个选择的时刻。",
+    mask: "位于第19相位。面具投射为「主张之人」——灵魂渴望一种明确的方向感和决心。半渡者最深的渴望就是不再「半渡」——他渴望做出选择。",
+    creativeMind: "达到客观半区内的最高发展。创造性心灵已经学会了分析、批判和建构，但它所建构的一切都指向一个还未到来的综合。",
+    bodyOfFate: "与意志处于一种微妙的近似平衡。外部世界不再令人窒息，但也没有完全退让——它仍然在那里，作为一个恒常的参照。",
+    description: "第十一相位是一个过渡与犹豫的相位——站在客观半区与主观半区的水岭上，离满月（第15相位）只有四个相位之遥，但在这四个相位中将发生质的飞跃。叶芝将这一相位描述为「焚毁旧衣的时刻」——旧的人格形式已经变得太紧太窄，如同一条不再合身的蛇皮，而新的形式还没有缝制完成。处于第11相位的灵魂通常体验到一种强烈的撕裂感：旧的生活方式和价值体系已经明确地失效了，但新的方向还没有清晰到可以全情投入的程度。圣十字若望（St. John of the Cross）所描述的「灵魂的暗夜」与这一相位有着惊人的对应——上帝的临在感消失了，旧有的信仰仪式变得空洞，但新的、更深层的神圣体验尚未到来。然而叶芝并不将这一相位视为纯粹的痛苦：他指出了第11相位与第19相位（主张之人）的深层对称。第11相位的人在犹豫中保持着开放性和灵活性；而第19相位的人则在确定中走向了僵化和教条。在某种意义上，犹豫是灵魂的一种高级能力——它意味着旧的答案不再让你满足，而你正在为尚未到来的、更大的真理保留空间。",
+    examples: "中年危机的本质结构；文明转型期的过渡人物；站在两条道路交叉口的灵魂"
+  },
+  {
+    id: 12, name: "先行者", nameEn: "The Forerunner",
+    tendency: "antithetical",
+    will: "意志的主观性急剧增强。它不再满足于对抗外部世界，而是开始建造内在的城堡。这是一个预言家式的灵魂——它看到了别人尚未看到的东西。",
+    mask: "位于第18相位。面具投射为「情感之人」——先行者渴望的恰恰是那种能够被大众理解、能够以情感的方式与集体沟通的能力。预言家渴望成为诗人。",
+    creativeMind: "开始从批判性转向建构性。创造性心灵不再满足于拆解旧形式，而是开始想象新形式——虽然这些新形式还只是在心灵之眼中闪烁的幻象。",
+    bodyOfFate: "开始减弱对意志的束缚力。外部世界在先行者的眼中开始失去它的理所当然性——它不再是一个不可动摇的「现实」，而是一个可以被重新想象的可能性空间。",
+    description: "第十二相位是一个过渡性的关键相位。叶芝将其命名为「先行者」（Forerunner）——这个人在旧时代的框架中预感到了新时代的形状，但他自己还无法完全进入那个新时代。他就像一个在黎明前醒来的人：他能看到地平线上的微光，但他所处的世界仍然是黑夜。叶芝暗示尼采（Nietzsche）可能属于这一相位——一个预告了价值重估的哲学家，他本人却被旧价值的崩溃所压垮。第十二相位的灵魂承受着一种特殊的痛苦：他<strong>知道得太多</strong>，以至于无法安心地活在当下，但他又<strong>来得太早</strong>，以至于无法被他所预见的未来所接纳。他是桥梁，而桥梁的命运就是被两端所踩踏。",
+    examples: "尼采（Nietzsche）；预告新时代的先知；走在时代前面的艺术家和思想家"
+  },
+  {
+    id: 13, name: "感官之人", nameEn: "The Sensuous Man",
+    tendency: "antithetical",
+    will: "意志沉浸在感官世界的丰饶之中。它的力量不再向外投射，而是向内收卷——将外部世界转化为内心体验的素材。",
+    mask: "位于第17相位。面具投射为「灵魔之人」——感官之人渴望的是一种超越感官的精神性。沉溺于美的灵魂最深切地渴望超越美。",
+    creativeMind: "完全服务于美和感官体验。理性不再追求真理，而是追求优雅——它帮助意志将每一次感官接触都提升为一种艺术。",
+    bodyOfFate: "外部现实转化为一种半透明的背景——它不再令人窒息，而是像一层薄雾般柔软地包裹着灵魂。宿命在此处化作了一种「忧郁的美」。",
+    description: "第十三相位是最纯粹的审美相位。叶芝将其描述为「生活在感官的极致与精神的渴求之间的灵魂」。处于这一相位的人将生活本身当作一件艺术品来创作——他们追求精微的感受、细腻的情感、以及每一刻体验的最大化。叶芝将波德莱尔（Baudelaire）和比亚兹莱（Aubrey Beardsley）归于这一相位——这两人都是将感官经验推向极致、同时又在这种极致中体验到深重忧郁的艺术家。第十三相位的本质悖论在于：<strong>越是深入感官，越是感到精神性的缺乏</strong>。正是这种缺憾感驱动着审美灵魂不断向前——向满月、向存在的统一攀升。在第十三相位，美是通向更高真实的桥梁，但它还不是真实本身。",
+    examples: "波德莱尔（Baudelaire）；比亚兹莱（Beardsley）；唯美主义者；将生活升华为艺术的审美灵魂"
+  },
+  {
+    id: 14, name: "执迷之人", nameEn: "The Obsessed Man",
+    tendency: "antithetical",
+    will: "意志被一个单一的意象或幻象所占据。它不再游移于多种可能性之间，而是将所有能量聚焦在一个点上——像一个透镜将阳光汇聚为火焰。",
+    mask: "位于第16相位。面具投射为「积极之人」——执迷者渴望的恰恰是他自己所缺乏的：行动力、向外辐射的能力、将内在幻象转化为外部现实的力量。",
+    creativeMind: "全部理智被征用来为一个核心意象服务。创造性心灵变成了意志的祭司——它的全部逻辑操作都是为了那个单一的幻象进行论证和装饰。",
+    bodyOfFate: "收缩为一个若隐若现的点。外部世界在执迷者的眼中几乎消失了——他的整个世界就是那个占据他心灵的意象。宿命在此处极度虚弱。",
+    description: "第十四相位是抵达满月之前的最后一个相位。意志的能量在此处凝聚到了极致——它不再寻找新的对象，而是<strong>被一个单一的对象所完全占据</strong>。叶芝将诗人济慈（Keats）归于这一相位：一个被「美即是真，真即是美」这一核心幻象所驱动的灵魂。执迷之人生活在一种高度集中的精神状态中——他的全部生命力都被一个意象、一个理念或一个人所磁化。这种执迷既是他的力量源泉（因为它给予了他非凡的强度和纯度），也是他的危险（因为它使他无法看到这个单一意象之外的任何东西）。在第十四相位，灵魂已经站在了满月的门口——再向前一步，执迷就会「溶解」为完全的统一。但这一步，只有极少数灵魂能够迈出。",
+    examples: "济慈（John Keats）；被单一理念驱动的神秘主义者；处于突破前夜的执迷艺术家"
+  },
+  {
+    id: 15, name: "满月 · 至美", nameEn: "Full Moon · Complete Beauty",
+    tendency: "antithetical",
+    will: "意志达到纯主观的顶点。它不再有任何「缺乏」——它已经成为了它所渴望的一切。意志即面具，自我即理想，当下即永恒。",
+    mask: "与意志完全重合。既然意志已经实现为面具，面具就不再是一个外在的渴望对象，而是化作了意志本身的荣光。这是四大机能中唯一两个机能合一的时刻。",
+    creativeMind: "完全被意志所吸收。理性不再作为独立的机能运作——它成为了意志内在光明的一个方面。创造不是「思考」出来的，而是从存在的统一中自然流溢的。",
+    bodyOfFate: "几乎消失为零。外部世界对灵魂失去了所有重量和意义。这不是逃避现实，而是<strong>超越现实</strong>——灵魂已经抵达了一个物质因果律不再适用的存在层次。",
+    description: "第十五相位是整个巨轮的<strong>绝对顶点</strong>——满月。这是叶芝体系中最崇高、也最难以言说的境界。他将其与基督和佛陀联系在一起——不是作为历史人物，而是作为<strong>「存在的统一」（Unity of Being）</strong>的完美象征。在第十五相位，四大机能之间的所有对抗和张力都得到了完美的解决：意志与面具合一，创造性心灵与命定的躯体不再对抗。灵魂体验到的不是「幸福」，而是比幸福更深刻的东西——<strong>完整性</strong>。<br><br>然而，叶芝深刻地意识到这一状态的悖论性质：满月是一个<strong>无法停留的顶点</strong>。巨轮不会停止转动。抵达满月的瞬间，灵魂就已经开始向第16相位滑落——向分离、分解和客观化的方向滑落。正如基督在受难中的呼喊：「我的神，我的神，为什么离弃我？」——这正是满月瞬间瓦解的戏剧性表达。满月的完美是不可持续的，但它的<strong>曾经存在</strong>赋予了整个巨轮以意义。<br><br>在人类经验中，极少数灵魂能够触及第15相位——那些被后世称为圣徒、佛陀或完美诗人的存在。但对于大多数灵魂来说，第15相位是一个永不抵达的<strong>方向</strong>，一个赋予所有不完美生命以意义的终极参照点。叶芝本人深知自己处于第17相位——离满月只有两步之遥，但这两步的距离就是整个宇宙的距离。",
+    examples: "基督、佛陀——「存在的统一」的象征；但丁《神曲》中天堂篇的顶点；任何触及完美瞬间的罕见灵魂"
+  },
+  {
+    id: 16, name: "积极之人", nameEn: "The Positive Man",
+    tendency: "antithetical",
+    will: "意志仍带着满月的余温，但已经开始向外发散。它不再向内凝聚，而是将满月中获得的内在统一向外投射——去影响、去塑造、去改变世界。",
+    mask: "位于第14相位。面具投射为「执迷之人」——积极者开始隐约怀念那种凝聚的强度。向外发散的人渴望重新获得向内的纯粹性。",
+    creativeMind: "开始从意志中再度分化出来。创造性心灵重新获得了独立的运作能力——但它仍然带有满月的记忆，因此它的逻辑操作带有一种难以言喻的优雅。",
+    bodyOfFate: "开始重新显现，但以一种温和的方式。外部世界不再虚无，但也不沉重——它像一个被内在光辉所照亮的外景，等待着被赋予形式。",
+    description: "第十六相位是满月之后的第一个相位。如果第十五相位是「存在」，那么第十六相位就是「行动」——灵魂从纯粹的内在圆满转向了<strong>将这种圆满表达出来的冲动</strong>。原著将此相位的例证列为：<strong>威廉·布莱克（William Blake）、拉伯雷（Rabelais）、阿雷蒂诺（Aretino）、帕拉塞尔苏斯（Paracelsus）</strong>以及「某些美丽的女性」。这些人物的共同特征是：他们被一种来自愚者相位（第28相位）的如梦般的能量所驱动，同时他们的创造性心灵（来自第14相位的「激烈」）赋予了这种驱动以无情的智性锋芒。积极之人处于一个特殊的有利位置：他刚刚经历过或至少瞥见过满月的统一，因此他的行动带有一种满月残余的<strong>魅力和光芒</strong>。但他也承受着一种特殊的痛苦——他记得完整是什么感觉，而现在他正在失去它。",
+    examples: "威廉·布莱克（William Blake）；拉伯雷（Rabelais）；阿雷蒂诺（Aretino）；帕拉塞尔苏斯（Paracelsus）——均为原著所列例证"
+  },
+  {
+    id: 17, name: "灵魔之人", nameEn: "The Daimonic Man",
+    tendency: "antithetical",
+    will: "意志体验到一种深刻的二元性。自我与「反自我」（Anti-Self）之间的对话变得清晰可闻。意志不再是单一的冲动，而是一个战场——或更准确地说，一个对话的场所。",
+    mask: "位于第13相位。面具投射为「感官之人」——灵魔之人渴望的是一种更加感性的、融入世界的生命体验。被精神性撕裂的人渴望感官的单纯性。",
+    creativeMind: "处于高度活跃的状态，它主要服务于想象。创造性心灵在此处成为了意志与灵魔之间的<strong>翻译器</strong>——将灵魔的智慧转译为人类可理解的语言。",
+    bodyOfFate: "呈现出一种特殊的双重性质——它既是限制，也是馈赠。因为正是外部现实的阻碍，才使得灵魔的召唤变得如此清晰和紧迫。",
+    description: "第十七相位是<strong>叶芝自己的相位</strong>，也是他投入了最多笔墨描述的相位。叶芝将处于这一相位的灵魂称为「灵魔之人」（The Daimonic Man）——这里的「灵魔」（Daimon）不是基督教意义上的恶魔，而是苏格拉底的「daimonion」：一个比自我更智慧的守护灵、一个对立面中的更高自我。<br><br>在第17相位，意志不是通过「成为某物」来定义自身，而是通过<strong>与某物的对话</strong>来定义自身——这个「某物」就是灵魔、就是反自我、就是面具在神秘经验中的极限显现。叶芝写道：<em>「我称之为面具的东西，在其超自然形态中即为灵魔。」</em>灵魔既是缪斯（灵感的源泉），也是审判者（良知的最高法庭）。创作者与灵魔之间的对话——意志与面具之间那股永远无法完全消弭的张力——正是叶芝全部诗学的最根本动力结构。<br><br>但丁（Dante）、雪莱（Shelley）、兰多（Landor）都被叶芝归于这一相位。他们的共同特征是：他们的作品不是来自「自我表达」，而是来自与一个<strong>超越性的对立面</strong>的持续对话。第17相位的灵魂承受着一种特殊的痛苦——他离满月只有两步之遥，他清楚地知道统一是什么感觉，但他同时也知道，他的使命<strong>不是抵达统一</strong>，而是<strong>用艺术的形式来铭刻这种渴望与未抵达之间的张力</strong>。正如叶芝在《意象》一诗中所说：<em>「我必须在废弃的破屋中／在枯瘠的燧石上点燃我的灯。」</em>灵魔之人不是抵达的人，而是在路上的人——但正是「在路上」本身，成为了他全部创造力的源泉。",
+    examples: "叶芝本人；但丁（Dante）；雪莱（Shelley）；兰多（Landor）——与灵魔对话的伟大创作者"
+  },
+  {
+    id: 18, name: "情感之人", nameEn: "The Emotional Man",
+    tendency: "antithetical",
+    will: "意志开始向外倾泻情感能量。它不再像第17相位那样处于内在的对话中，而是感到一种强烈的冲动去感染和影响他人。",
+    mask: "位于第12相位。面具投射为「先行者」——情感之人渴望的是先知般的远见和洞察力。善于感染大众的人渴望超越大众的智慧。",
+    creativeMind: "开始发展修辞能力。创造性心灵学会了如何将情感组织为有说服力的叙述——不是逻辑论证，而是情感的叙事。",
+    bodyOfFate: "呈现为广大的听众或追随者——外部世界在此处是情感投射的屏幕和接收器。",
+    description: "第十八相位代表了从内在的灵魔对话向外部的情感辐射的转移。处于这一相位的人具有强大的情感感染力和公众影响力。原著将此相位的两个至高人物列为<strong>拿破仑（Napoleon）</strong>和<strong>莎士比亚（Shakespeare）</strong>——拿破仑将自己视为亚历山大大帝的转世，在加冕时身着罗马皇帝的长袍；而莎士比亚则通过面具与创造性心灵，在一个好斗的时代远离纷争，「创造了存在过的最富激情的艺术」。情感之人的核心能力是<strong>共鸣</strong>：他能精确地感知到时代的情绪基调。叶芝还在此相位中发现了王尔德（Wilde）的影子——「某种漂亮的、女性化的、不真诚的东西」，来自他对早于自己相位作家的崇拜。<br><br>此相位的危险在于：情感之人容易混淆「被感动」和「看见真理」。在最高境界上是伟大的诗人和演说家，在最低境界上则沦为<strong>煽动者</strong>。",
+    examples: "拿破仑（Napoleon）；莎士比亚（Shakespeare）——原著列为首要例证；王尔德（Wilde）的某些面向"
+  },
+  {
+    id: 19, name: "主张之人", nameEn: "The Assertive Man",
+    tendency: "antithetical",
+    will: "意志开始失去满月残余的柔和光辉，变得更加强硬和边界分明。它不再是「散发光芒」，而是开始「划定领土」。",
+    mask: "位于第11相位。面具投向「半渡之魂」——主张者隐约渴望那种更加流动的、未确定的自由。坚固的自我渴望柔软。",
+    creativeMind: "发展出系统化的论证能力。创造性心灵学会了如何「证明」——如何为自己的主张建立坚固的逻辑防御工事。",
+    bodyOfFate: "被意志有力地推回，但并未消失。外部世界在此处是一个需要被「管理」的对象，一个需要被意志所整合的系统。",
+    description: "第十九相位标志着主观能量的进一步向外固化——从满月的纯粹内在光辉一路下行，主观热情在此处被锻造成了带有明确轮廓的思想体系和社会主张。如果第16相位向外散发的是光芒，第18相位向外倾泻的是情感，那么第19相位向外投射的就是<strong>主张</strong>——明确的、带有强烈个人烙印的立场和信条。这一相位的人通常是杰出的组织者、制度创立者或学派奠基人。他们具有一种将内在直觉转化为可传播的思想体系的天赋能力。叶芝将这一相位与伦理体系和政治哲学的创立联系在一起——这不是神秘经验本身的领域（那是第13-17相位的领域），而是将神秘经验的高度浓缩体「翻译」为可以被他人学习和执行的规则系统。十九相位的创造力不再是纯粹的内在幻象，而是一种<strong>外化的结构</strong>。其危险在于<strong>僵化</strong>：主张一旦被制度化、法典化，就可能失去它在诞生时与生命之源的联系，成为一具空壳——这正是叶芝对所有「主义」的警惕：它们在诞生时是火焰，在传播中变成了灰烬。第19相位与第11相位（半渡之魂）形成对称：一个在确定中失去灵活，一个在犹豫中保持开放。",
+    examples: "学派奠基人；制度的创建者；将个人洞见系统化的思想家"
+  },
+  {
+    id: 20, name: "务实之人", nameEn: "The Concrete Man",
+    tendency: "primary",
+    will: "意志收敛了主观扩张的势头。它现在更关心具体的事物——可以被触摸、被衡量、被交易的东西。幻想的翅膀被收拢了。",
+    mask: "位于第10相位。面具投向「破像者」——务实者最深层的渴望是打破自己精心构建的秩序。建造者渴望成为拆解者。",
+    creativeMind: "转向高度实用的领域。创造性心灵在此处不再追问终极问题，而是专注于「如何做」——它变成了工程师的头脑。",
+    bodyOfFate: "呈现为具体的任务、可量化的目标和有限的时间——外部世界在此处不是压迫，而是工地。",
+    description: "第二十相位标志着向客观领域的实质性回归——在巨轮上，它与第10相位（破像者）呈几何对称，但方向相反：第10相位是从客观走向主观（向上攀登，破除旧形式），第20相位则是从主观走向客观（向下落实，将洞见固化为制度）。务实之人对伟大的幻象和神秘的象征没有耐心——他要的是<strong>可衡量的结果</strong>。叶芝将这一相位与商业、工程、行政管理和制度建设联系在一起。在最高境界上，第20相位的人是不可或缺的「翻译者」——他们将来先行者和艺术家的那些飘渺的、难以言说的洞见转化为可以实施的方案、可以运作的机构和可以传承的制度。没有第20相位，人类文明中一切伟大的精神发现都将随创造者的离世而消散。但在最低境界上，第20相位的人沦为缺乏想象力的实用主义者——将一切不能量化、不能交易、不能写入流程手册的价值都斥为无意义的空谈。叶芝对此的批判极为犀利：当务实者将「有用」等同于「真实」，他就成了自己狭隘视野的囚徒——这正是现代技术官僚体制的哲学根基。",
+    examples: "卓越的工程师和管理者；将理念转化为机构的具体执行者；务实到近乎冷酷的现实主义者"
+  },
+  {
+    id: 21, name: "获取之人", nameEn: "The Acquisitive Man",
+    tendency: "primary",
+    will: "意志的冲动聚焦于占有和积累。它不再关心「意义」，只关心「拥有」。灵魂的力量在此处被转换为物质的重量。",
+    mask: "位于第9相位。面具投向「信仰之魂」——获取者最深层的渴望是一种超越物质的信念系统。拥有太多的人渴望被某种比自己更大的东西所拥有。",
+    creativeMind: "退化为精明的算计。创造性心灵的全部功能被压缩为「如何获得更多」——这是一种高度发达但维度极窄的智力。",
+    bodyOfFate: "被理解为资源的限制——外部世界在此处是一个需要被掠夺和囤积的对象。",
+    description: "第二十一相位代表了意志在客观半区下半段的典型表现。能量从主观的光辉之顶一路滑落，在此处沉降为对物质和权力的<strong>攫取欲</strong>。叶芝对这一相位的描述带有一丝冷峻的同情——他理解获取之人是在某种意义上「回补」他在接近满月时所失去的那种物质确定性。获取之人被一种深层的焦虑所驱动：他害怕失去，因为他已经失去了内在的光辉（或者说，他已经远离了内在光辉曾经存在过的那些相位）。于是他用外部的堆积来填补内部的空缺。<br><br>但叶芝同时指出，获取之人通常拥有一个令人惊讶的面具——第9相位的「信仰之魂」。这意味着，在最成功的获取者内心深处，隐藏着一种<strong>对超越的隐秘渴望</strong>。这也就是为什么许多巨富在积累到一定程度后转向慈善、宗教或艺术——他们在物质堆积中找不到满足，因为他们的面具在呼唤着精神性的「另一种富有」。",
+    examples: "成功的资本家；收藏家；被物质安全感驱动的积累型人格"
+  },
+  {
+    id: 22, name: "受害者", nameEn: "The Victim",
+    tendency: "primary",
+    will: "意志被外部力量所碾压——不是因为它弱小，而是因为它<strong>选择了</strong>去承担。受害者不是被动的牺牲品，而是接受了命运挑战的悲剧人物。",
+    mask: "位于第8相位。面具投向「战士」——受害者渴望的恰恰是碾压他的那种力量。被命运击倒的人渴望成为命运的主人。",
+    creativeMind: "变得极其锐利和清醒。创造性心灵在此处用解剖刀般的精确度审视自身的处境——它看到了一切，却无力改变。这种「看的清楚却动不了」的痛苦是第22相位的核心体验。",
+    bodyOfFate: "膨胀至极大。外部世界的力量在此处是压倒性的——社会制度、历史洪流、肉身衰败、或他人的意志，以一种几乎是形而上学的方式包围并挤压着灵魂。",
+    description: "第二十二相位是巨轮上最痛苦也最深刻的相位之一。叶芝将其命名为「受害者」（The Victim），但他对这一概念的使用远远超越了日常语义。第22相位的受害者不是被动地挨打——他是<strong>主动承受</strong>。他与命运之间存在着一种悖论性的「共谋」：他选择了与压倒性的外部力量正面对抗，明知自己会被击败，但这种「明知不可为而为之」的选择本身就构成了他的尊严。<br><br>叶芝在文学中找到了哈代（Thomas Hardy）的苔丝（Tess of the d'Urbervilles）作为第22相位的原型：一个被社会、性别和阶级的三重力量所碾压的女性，但在她的承受中，她获得了一种比碾压她的力量更高的道德尊严。受害者相位的核心悖论在于：<strong>外部力量越是膨胀，内在的尊严就越是被激发</strong>。烈士在监狱中获得了迫害者永远无法企及的精神高度。第22相位是第8相位（战士/猎手）的面具相位——这意味着，战士在征服的过程中，他的面具其实是在召唤他被征服的命运；而受害者在被碾压的过程中，他的面具则在召唤着他成为征服者的可能性。",
+    examples: "哈代笔下的苔丝（Tess of the d'Urbervilles）；政治迫害的受害者；在与制度的对抗中展现尊严的个体"
+  },
+  {
+    id: 23, name: "接纳之人", nameEn: "The Receptive Man",
+    tendency: "primary",
+    will: "意志放弃了对抗的姿态。它不再向外冲击，而是学会了向内收纳——以开放的心态接纳世界的恩赐与打击。",
+    mask: "位于第7相位。面具投向「逼近平衡」——接纳者的更深渴望是在全然的开放与必要的边界之间找到平衡。",
+    creativeMind: "发展出一种不具侵略性的智慧。创造性心灵学会了「不评判」的观察——让它所观察的对象如其本然地呈现自身。",
+    bodyOfFate: "被接纳为生命的一部分而非敌人。外部世界在此处不再是压迫性的力量，而是教导者——每一次打击都是课程，每一份恩赐都是礼物。",
+    description: "第二十三相位是<strong>自然的智慧</strong>的相位——这是一种不来自于主动求索，而是来自于被动接纳的智慧。叶芝将画家伦勃朗（Rembrandt）的某些面向与此相位联系在一起：一个能够以深邃的平静凝视人类面容中的一切沧桑、衰老和脆弱的灵魂。接纳之人不需要战胜世界，因为他已经理解了世界与他本为一体。这种理解不是理智上的认同，而是存在层面上的<strong>融化</strong>——自我与非自我之间的边界开始变得多孔而柔软。<br><br>但叶芝同时对这种「智慧」抱有一种警惕：接纳之人在最高境界上是佛陀般的宁静——他们在一切现象中看到平等的价值；但在较低境界上，接纳之人可能沦为<strong>被动的随波逐流者</strong>——失去了分辨善恶的锋芒，以「接纳」之名行逃避之实。真正的接纳永远包含着一个清醒的道德维度——它接纳一切生命，但绝不与恶同流。",
+    examples: "伦勃朗（Rembrandt）的凝视；老年的智慧；在所有事物中看到了神圣性的包容灵魂"
+  },
+  {
+    id: 24, name: "组织之智", nameEn: "The Organizing Mind",
+    tendency: "primary",
+    will: "意志将所有精力转向外部世界的组织与分类。它不再渴望创造美，也不再渴望拥有财富——它现在渴望的是<strong>秩序</strong>。",
+    mask: "位于第6相位。面具投向「张力之魂」——组织者最深层的渴望是重新获得那种内在的张力与激情。秩序的管理者渴望混乱的创造力。",
+    creativeMind: "高度发达于系统化和分类化。创造性心灵在此处成为了一台精准的分类机器——它能将任何复杂的现象归入其应有的格子。",
+    bodyOfFate: "被理解为需要被整理的「杂多」——外部世界在此处是一片巨大的、需要被分类、归档和管理的混沌材料。",
+    description: "第二十四相位代表着理智在客观半区的全面执政——创造性心灵在此处达到了它在客观领域中的最高发展，但它服务的对象不再是内在的幻象，而是外部的秩序。如果第23相位是「接纳一切」（以开放的智慧包容万有的流动），那么第24相位就是<strong>「整理一切」</strong>（将混沌的经验归入清晰而固定的类别）。处于这一相位的人具有卓越的组织天赋和系统化能力。在历史上，它对应着狄德罗的百科全书派、林奈的生物分类学和韦伯的官僚制理论。但叶芝对此保持着高度的警觉和批判：组织者的心灵在高效的同时也容易滑向<strong>理智的暴政</strong>——当分类的格子变得比被分类的活生生的生命更重要时，理性就从解放者变成了狱卒。这正是叶芝对现代性最深刻的诊断之一：现代官僚体制和过度膨胀的科学主义将活生生的灵魂钉死在分类的十字架上，用标签替代了理解，用流程替代了判断。第24相位与第6相位（张力之魂）形成几何对称——第6相位是在张力中积蓄力量等待突破，第24相位则是在秩序中固守边界拒绝突破。两者面临的共同困境是：如何在不失去秩序的前提下保持生命的流动性？",
+    examples: "百科全书派；分类学家；制度设计者；官僚体系中的卓越组织者"
+  },
+  {
+    id: 25, name: "条件之人", nameEn: "The Conditional Man",
+    tendency: "primary",
+    will: "意志以一种有条件的方式运作——它在接受外部规则的前提下运作，不再寻求超越框架，而是在框架内寻找最优解。原著将此相位称为「条件之人」（The Conditional Man）。",
+    mask: "位于第5相位。真实面具：「拒绝」（Rejection）——对一切无法在既定条件下运作的事物的清醒排斥。虚假面具：「道德冷漠」（Moral Indifference）。",
+    creativeMind: "真实创造性心灵：「社会性智力」（Social intellect）——在人际和制度的网络中精准运作。虚假：「局限」（Limitation）。",
+    bodyOfFate: "「行动的强制失败」（Enforced failure of action）——外部世界在此处不再奖励主动行为，而是以失败反馈来约束意志的冲动。",
+    description: "第二十五相位在原著中被称为「条件之人」（The Conditional Man）——一个在所有行动中都意识到外部条件和限制的灵魂。与第26相位（驼背人/多重之人）的碎片化自我不同，第25相位的人并非没有统一性，而是将外部条件内化为了自我的一部分。真实面具「拒绝」意味着一种清醒的自我边界：不是盲目排斥，而是对哪些事物在给定条件下可行、哪些不可行的精确判断。此相位的灵魂在现代社会中对应着那些在高度结构化的环境中卓越运作的人——他们不是规则的破坏者，也不是规则的盲从者，而是在规则中找到最优路径的睿智玩家。危险在于滑向虚假面具的「道德冷漠」——在精于计算条件的同时，失去了对善恶的直觉判断力。",
+    examples: "在复杂体制中游刃有余的运作者；精于社会规则但不盲从的智慧者；高度适应环境的生存艺术家"
+  },
+  {
+    id: 26, name: "驼背人 / 多重之人", nameEn: "The Hunchback / The Multiple Man",
+    tendency: "primary",
+    will: "意志发生了一种奇怪的扭曲——它不再真诚地追求任何东西，而是以戏仿和伪装的方式参与世界。自我呈现为一副拼凑的面孔。",
+    mask: "位于第4相位。面具投向「欲望之始」——驼背人渴望的是那种直率、不假思索的欲望冲动。复杂的人渴望单纯。",
+    creativeMind: "发展出高度的狡黠和诡辩能力。创造性心灵不再追求真理，而是追求「显得合理」——它成为了扭曲事实的艺术家。",
+    bodyOfFate: "被意志以一种不诚实的方式所应对——外部世界不是被对抗，而是被欺骗、被扭曲、被规避。",
+    description: "第二十六相位在原著中被称为「多重之人，亦称驼背人」（The Multiple Man also called The Hunchback）。这是叶芝系统中最令人不安的相位之一。叶芝用莎士比亚的理查三世（Richard III）作为原型——一个身体畸形、内心充满怨恨、以操纵和欺骗为武器的灵魂。这个相位的核心特征是<strong>自我的分裂与碎片化</strong>：意志无法在一个单一的方向上凝聚，而是分散为多重彼此矛盾的面孔。这既是「多重之人」的含义（自我呈现为多张不统一的面孔），也是「驼背人」的含义（灵被一种内在的扭曲所折磨）。驼背人在面对命运时不说「是」也不说「不」——他<strong>绕过去</strong>。他的欺骗首先是对自己的欺骗。<br><br>真实面具「自我夸张」（Self-exaggeration）是对这种碎片化的创造性回应——通过夸大自我的某个面向来制造一种临时的统一感。虚假面具「自我放弃」（Self-abandonment）则是完全放弃了统合的努力。创造性心灵第一次在此处发展出「感知性格」（First perception of character）的能力——但虚假形式则是「残缺」（Mutilation），将他人和自己都视为破碎的存在。在第26相位的最低境界上，灵魂沦为彻底的虚伪和自我欺骗；在最高境界上，驼背人可能是理解了所有角色都是面具的<strong>荒诞剧大师</strong>。",
+    examples: "莎士比亚的理查三世（Richard III）；政治中的马基雅维利主义者；被自我欺骗所困的复杂灵魂"
+  },
+  {
+    id: 27, name: "弃绝之圣", nameEn: "The Renouncing Saint",
+    tendency: "primary",
+    will: "意志不再向外追逐任何东西。它放弃了世界——不是出于失败，而是出于<strong>选择</strong>。弃绝者看清了所有欲望的无常本质，于是转身离去。",
+    mask: "位于第3相位。面具投向「萌动之志」——圣徒渴望的是一种全新的开始，一种在完全洗清过去之后的单纯重启。",
+    creativeMind: "转向对终极真理的静思。创造性心灵不再用于计算、策划或辩护——它用于冥想那不可言说者。",
+    bodyOfFate: "被弃绝者主动放弃了其对抗性。外部世界不再是一个问题，因为弃绝者已经不再要求世界满足他的任何需求。",
+    description: "第二十七相位的弃绝之圣与第15相位的满月至美遥相呼应，但方向相反。第15相位是通过<strong>完全的自我实现</strong>来超越世界；第27相位则是通过<strong>完全的自我弃绝</strong>来超越世界。两者都达到了某种「自由」，但路径截然相反。叶芝将早期基督教沙漠教父圣安东尼（St. Anthony）归于这一相位——一个放弃了全部财产、名誉和社交关系、在沙漠中独自面对上帝的灵魂。<br><br>叶芝对弃绝之圣的态度既敬重又复杂。作为一个处于第17相位的艺术家，他对「弃绝」保持着一种深刻的矛盾：一方面，他理解弃绝是解脱痛苦的终极路径；另一方面，他无法接受弃绝所要求的对<strong>具体之美、感官之丰富和个体之独特性</strong>的放弃。叶芝写道，弃绝之圣走上了一条「向上的下坡路」——他从世界的角度看是在堕落，但从永恒的角度看却是在攀升。在某种意义上，第27相位是第3相位（萌动之志）完成了整个循环之后的高级回归——从无知到有知，再到超越于知识的宁静。",
+    examples: "圣安东尼（St. Anthony）；沙漠教父；主动弃绝世界的修行者"
+  },
+  {
+    id: 28, name: "愚者", nameEn: "The Fool",
+    tendency: "primary",
+    will: "意志处于一种奇特的沉睡状态——不是没有力量，而是力量在无意识中自行运转。愚者不「选择」，但他被一种比选择更深邃的力量所牵引。",
+    mask: "位于第2相位。面具投向「初生之体」——愚者渴望的是再次开始，是重回一切分化之前的原始混沌中的纯洁。",
+    creativeMind: "退回到了前逻辑的直觉状态。创造性心灵不再进行推理论证，而是以一种不可言说的直接方式触碰真实。",
+    bodyOfFate: "被愚者以一种独特的方式所无视——不是对抗，不是接纳，也不是弃绝，而是<strong>不承认其存在</strong>。愚者的世界中没有宿命，因为他没有自我来承受宿命。",
+    description: "第二十八相位是<strong>巨轮的最后一个相位，也是与第1相位相接的临界点</strong>——愚者（The Fool）。叶芝将莎士比亚的李尔王中的弄臣和瓦格纳的帕西法尔（Parsifal）作为原型——前者代表了愚者的社会维度（以疯癫的智慧揭露王权的虚妄），后者代表了愚者的神秘维度（以纯洁的无知击败了世故的巫术）。<br><br>第28相位的愚者与第1相位的无形之体很容易被混淆，但它们之间存在着一个决定性的差异：第1相位是<strong>尚未获得个体的身体</strong>，而第28相位是<strong>在经历了一切个体的起伏之后抛弃了自我意识</strong>。第1相位的混沌是种子尚未发芽前的混沌；第28相位的混沌则是果树在结完最后的果实后化为腐土的那种混沌。在某种意义上，愚者是整个巨轮上最自由的灵魂——因为他已经不再被<strong>「成为某人」</strong>的需求所驱使。风吹过他，他就是风；阳光洒在他身上，他就是光。但这种自由是一种毁灭性的自由——愚者在获得它的同时，失去了被称之为「自我」的一切。叶芝在《幻象》的最后一卷中暗示，愚者是新月的门槛——当巨轮完成一次完整的旋转，灵魂将在第1相位中重新开始，带着上一次循环中所有未被消化的经验，进入一轮全新的生命。<br><br>这是叶芝体系中最为悲悯也最为深刻的洞见之一：<strong>轮回不是重复，而是每一个灵魂在二十八相位的巨轮上，一次又一次地尝试抵达满月——而每一次的出发点，都恰好是上一次生命中未竟之业的对立面。</strong>",
+    examples: "李尔王的弄臣；帕西法尔（Parsifal）；禅宗公案中「无知」的开悟者；在疯癫中映照世界的智慧"
+  }
+];
+
+// ====================================================================
+// COMPASS ENGINE
+// ====================================================================
+(function() {
+  const canvas = document.getElementById('compassCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+  const cx = W / 2;
+  const cy = H / 2;
+  const outerR = 240;
+  const phaseR = 200;
+  const facultyR = 110;
+  const innerTextR = 60;
+
+  let selectedPhase = null;
+  let hoveredPhase = null;
+  let mouseX = 0, mouseY = 0;
+  let animationFrame;
+  let glowPhase = 0;
+
+  // Faculty positions (angles in radians, 0 = top, CW)
+  // Phase 1 = 0 radians (top). Phase 15 = π radians (bottom)
+  function phaseToAngle(phaseNum) {
+    // Phase 1 at top (angle = -π/2 = top of circle)
+    // Going clockwise
+    return -Math.PI / 2 + (phaseNum - 1) * (2 * Math.PI / 28);
+  }
+
+  function angleToPhase(angle) {
+    let normalized = angle + Math.PI / 2;
+    if (normalized < 0) normalized += 2 * Math.PI;
+    let phase = Math.round(normalized / (2 * Math.PI / 28)) + 1;
+    if (phase > 28) phase -= 28;
+    if (phase < 1) phase += 28;
+    return phase;
+  }
+
+  function getFacultyPositions(willPhase) {
+    // Mask: symmetric to Will around the 15/1 axis
+    // Formula: Mask = 30 - Will (with wrapping: 29→1, 0→28)
+    let maskPhase = 30 - willPhase;
+    while (maskPhase > 28) maskPhase -= 28;
+    while (maskPhase < 1) maskPhase += 28;
+
+    // Creative Mind: follows Yeats's table from A Vision
+    let cmPhase;
+    if (willPhase === 15) {
+      cmPhase = 15; // Full Moon: all faculties converge
+    } else if (willPhase >= 1 && willPhase <= 13) {
+      cmPhase = 29 - willPhase; // Primary half: CM = 29 - Will (28 for W1, 27 for W2, ..., 16 for W13)
+    } else if (willPhase === 14) {
+      cmPhase = 16; // Special case: CM equals Mask at phase 14 (Yeats's table correction)
+    } else {
+      // Phases 16-28: CM = Mask (antithetical half descending)
+      cmPhase = maskPhase;
+    }
+
+    // Body of Fate: symmetric to Creative Mind around 15/1 axis
+    // Formula: BoF = 30 - CM (same geometric principle as Mask)
+    let bofPhase = 30 - cmPhase;
+    while (bofPhase > 28) bofPhase -= 28;
+    while (bofPhase < 1) bofPhase += 28;
+
+    return {
+      will: willPhase,
+      mask: maskPhase,
+      creativeMind: cmPhase,
+      bodyOfFate: bofPhase
+    };
+  }
+
+  function drawStarfield() {
+    // Subtle random dots in background (only draw once, cached)
+    if (canvas._starsDrawn) return;
+    for (let i = 0; i < 120; i++) {
+      const sx = Math.random() * W;
+      const sy = Math.random() * H;
+      const sr = Math.random() * 0.8 + 0.2;
+      const alpha = Math.random() * 0.4 + 0.1;
+      ctx.fillStyle = `rgba(139,115,85,${alpha})`;
+      ctx.beginPath();
+      ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    canvas._starsDrawn = true;
+  }
+
+  function drawCompass(timestamp) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Background gradient (paper theme)
+    const bgGrad = ctx.createRadialGradient(cx, cy, innerTextR, cx, cy, outerR + 40);
+    bgGrad.addColorStop(0, 'rgba(253,249,240,0.9)');
+    bgGrad.addColorStop(1, 'rgba(232,223,200,0.95)');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, W, H);
+
+    drawStarfield();
+
+    const pulse = Math.sin(timestamp / 3000) * 0.5 + 0.5;
+
+    // Outer glow ring
+    ctx.save();
+    ctx.shadowColor = 'rgba(26,39,68,0.06)';
+    ctx.shadowBlur = 30;
+    ctx.strokeStyle = 'rgba(26,39,68,0.12)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+
+    // Concentric decorative rings
+    for (let r = outerR - 5; r > phaseR + 15; r -= 15) {
+      ctx.strokeStyle = `rgba(26,39,68,${0.04 + (outerR - r) / 350})`;
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Inner decorative rings
+    for (let r = phaseR - 5; r > facultyR + 15; r -= 15) {
+      ctx.strokeStyle = `rgba(26,39,68,${0.03 + (phaseR - r) / 350})`;
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // TICK MARKS for each phase (small outer ticks)
+    for (let i = 0; i < 28; i++) {
+      const angle = phaseToAngle(i + 1);
+      const isMajor = (i + 1) % 7 === 1 || i + 1 === 15; // Every 7th + phase 15
+      const tickLen = isMajor ? 18 : 10;
+
+      const x1 = cx + (outerR - 5) * Math.cos(angle);
+      const y1 = cy + (outerR - 5) * Math.sin(angle);
+      const x2 = cx + (outerR - 5 - tickLen) * Math.cos(angle);
+      const y2 = cy + (outerR - 5 - tickLen) * Math.sin(angle);
+
+      const isSelected = selectedPhase === i + 1;
+      const isHovered = hoveredPhase === i + 1;
+
+      ctx.strokeStyle = isSelected
+        ? '#1a2744'
+        : isHovered
+        ? '#5c4a3a'
+        : isMajor
+        ? '#8b7355'
+        : 'rgba(139,115,85,0.25)';
+      ctx.lineWidth = isSelected ? 2 : (isMajor ? 1.2 : 0.6);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+
+      // Major phase labels
+      if (isMajor || i + 1 === 15) {
+        const lx = cx + (outerR - 30) * Math.cos(angle);
+        const ly = cy + (outerR - 30) * Math.sin(angle);
+        ctx.fillStyle = isSelected
+          ? '#1a2744'
+          : '#5c4a3a';
+        ctx.font = '10px Cinzel, serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(String(i + 1), lx, ly);
+      }
+    }
+
+    // PHASE DOTS on the phase ring
+    for (let i = 0; i < 28; i++) {
+      const angle = phaseToAngle(i + 1);
+      const px = cx + phaseR * Math.cos(angle);
+      const py = cy + phaseR * Math.sin(angle);
+      const isSelected = selectedPhase === i + 1;
+      const isHovered = hoveredPhase === i + 1;
+      const baseR = 5;
+      const r = isSelected ? baseR + 7 + 3 * pulse : isHovered ? baseR + 4 : baseR;
+
+      // Glow for selected/hovered
+      if (isSelected || isHovered) {
+        ctx.save();
+        ctx.shadowColor = 'rgba(26,39,68,0.3)';
+        ctx.shadowBlur = isSelected ? 20 : 12;
+        ctx.fillStyle = '#e0c56e';
+        ctx.beginPath();
+        ctx.arc(px, py, r + 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Dot fill
+      const dotGrad = ctx.createRadialGradient(px, py, 0, px, py, r);
+      if (isSelected) {
+        dotGrad.addColorStop(0, '#1a2744');
+        dotGrad.addColorStop(0.4, '#2c3e5a');
+        dotGrad.addColorStop(1, 'rgba(26,39,68,0.15)');
+      } else if (isHovered) {
+        dotGrad.addColorStop(0, '#2c3e5a');
+        dotGrad.addColorStop(1, 'rgba(201,168,76,0.3)');
+      } else {
+        dotGrad.addColorStop(0, 'rgba(26,39,68,0.65)');
+        dotGrad.addColorStop(1, 'rgba(26,39,68,0.1)');
+      }
+      ctx.fillStyle = dotGrad;
+      ctx.beginPath();
+      ctx.arc(px, py, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Dot border
+      ctx.strokeStyle = isSelected
+        ? '#1a2744'
+        : isHovered
+        ? '#5c4a3a'
+        : 'rgba(168,180,200,0.2)';
+      ctx.lineWidth = isSelected ? 2 : 0.8;
+      ctx.beginPath();
+      ctx.arc(px, py, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Selected phase arc highlight
+    if (selectedPhase !== null) {
+      const selAngle = phaseToAngle(selectedPhase);
+      const arcStart = selAngle - Math.PI / 28 - 0.04;
+      const arcEnd = selAngle + Math.PI / 28 + 0.04;
+
+      ctx.save();
+      ctx.strokeStyle = `rgba(26,39,68,${0.25 + 0.15 * pulse})`;
+      ctx.lineWidth = 6;
+      ctx.shadowColor = 'rgba(26,39,68,0.15)';
+      ctx.shadowBlur = 18;
+      ctx.beginPath();
+      ctx.arc(cx, cy, phaseR, arcStart, arcEnd);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // FACULTY LINES (connections)
+    if (selectedPhase !== null) {
+      const fac = getFacultyPositions(selectedPhase);
+
+      // Will ↔ Mask connection
+      const wAngle = phaseToAngle(fac.will);
+      const mAngle = phaseToAngle(fac.mask);
+      const wx = cx + facultyR * Math.cos(wAngle);
+      const wy = cy + facultyR * Math.sin(wAngle);
+      const mx = cx + facultyR * Math.cos(mAngle);
+      const my = cy + facultyR * Math.sin(mAngle);
+
+      ctx.save();
+      ctx.setLineDash([4, 8]);
+      ctx.strokeStyle = `rgba(196,115,53,0.2)`;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(wx, wy);
+      ctx.lineTo(mx, my);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+
+      // Creative Mind ↔ Body of Fate connection
+      const cAngle = phaseToAngle(fac.creativeMind);
+      const bAngle = phaseToAngle(fac.bodyOfFate);
+      const ccx = cx + facultyR * Math.cos(cAngle);
+      const ccy = cy + facultyR * Math.sin(cAngle);
+      const bx = cx + facultyR * Math.cos(bAngle);
+      const by = cy + facultyR * Math.sin(bAngle);
+
+      ctx.save();
+      ctx.setLineDash([4, 8]);
+      ctx.strokeStyle = `rgba(44,95,138,0.18)`;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(ccx, ccy);
+      ctx.lineTo(bx, by);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+    }
+
+    // FACULTY DOTS
+    if (selectedPhase !== null) {
+      const fac = getFacultyPositions(selectedPhase);
+      const dots = [
+        { phase: fac.will, color: '#c47335', glow: 'rgba(196,115,53,0.45)', label: '意志', r: 14 },
+        { phase: fac.mask, color: '#5a7a9a', glow: 'rgba(90,122,154,0.45)', label: '面具', r: 12 },
+        { phase: fac.creativeMind, color: '#2c5f8a', glow: 'rgba(44,95,138,0.45)', label: 'CM', r: 12 },
+        { phase: fac.bodyOfFate, color: '#8b3a3a', glow: 'rgba(139,58,58,0.45)', label: 'BoF', r: 12 }
+      ];
+
+      dots.forEach(d => {
+        const angle = phaseToAngle(d.phase);
+        const dx = cx + facultyR * Math.cos(angle);
+        const dy = cy + facultyR * Math.sin(angle);
+
+        // Outer glow
+        ctx.save();
+        ctx.shadowColor = d.glow;
+        ctx.shadowBlur = 18 + 6 * pulse;
+        const glowGrad = ctx.createRadialGradient(dx, dy, 0, dx, dy, d.r * 1.5);
+        glowGrad.addColorStop(0, d.color);
+        glowGrad.addColorStop(1, 'transparent');
+        ctx.fillStyle = glowGrad;
+        ctx.beginPath();
+        ctx.arc(dx, dy, d.r * 1.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // Core dot
+        const coreGrad = ctx.createRadialGradient(dx - d.r*0.3, dy - d.r*0.3, 0, dx, dy, d.r);
+        coreGrad.addColorStop(0, '#fff');
+        coreGrad.addColorStop(0.3, d.color);
+        coreGrad.addColorStop(1, 'rgba(0,0,0,0.5)');
+        ctx.fillStyle = coreGrad;
+        ctx.beginPath();
+        ctx.arc(dx, dy, d.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Border
+        ctx.strokeStyle = d.color;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(dx, dy, d.r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Label
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 10px "Noto Serif SC", serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(d.label, dx, dy);
+      });
+    }
+
+    // CENTER TEXT
+    if (selectedPhase !== null) {
+      const phase = phaseData[selectedPhase - 1];
+      ctx.fillStyle = '#1a2744';
+      ctx.font = 'bold 28px Cinzel, serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(String(selectedPhase), cx, cy - 12);
+
+      ctx.fillStyle = '#3d2b1f';
+      ctx.font = '13px "Noto Serif SC", serif';
+      ctx.fillText(phase.name, cx, cy + 18);
+    } else {
+      ctx.fillStyle = '#8b7355';
+      ctx.font = '14px "Noto Serif SC", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('点击相位', cx, cy);
+    }
+
+    // Hover tooltip
+    if (hoveredPhase !== null && hoveredPhase !== selectedPhase) {
+      const hAngle = phaseToAngle(hoveredPhase);
+      const hx = cx + (phaseR + 35) * Math.cos(hAngle);
+      const hy = cy + (phaseR + 35) * Math.sin(hAngle);
+      const phase = phaseData[hoveredPhase - 1];
+
+      // Tooltip background
+      const tw = ctx.measureText(`${hoveredPhase} · ${phase.name}`).width + 20;
+      const th = 28;
+      ctx.fillStyle = 'rgba(245,239,223,0.95)';
+      ctx.strokeStyle = 'rgba(26,39,68,0.6)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      // Manual rounded rectangle for browser compatibility
+      const rx = hx - tw/2, ry = hy - th/2, rw = tw, rh = th, rr = 6;
+      ctx.moveTo(rx + rr, ry);
+      ctx.lineTo(rx + rw - rr, ry);
+      ctx.arcTo(rx + rw, ry, rx + rw, ry + rr, rr);
+      ctx.lineTo(rx + rw, ry + rh - rr);
+      ctx.arcTo(rx + rw, ry + rh, rx + rw - rr, ry + rh, rr);
+      ctx.lineTo(rx + rr, ry + rh);
+      ctx.arcTo(rx, ry + rh, rx, ry + rh - rr, rr);
+      ctx.lineTo(rx, ry + rr);
+      ctx.arcTo(rx, ry, rx + rr, ry, rr);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#e0c56e';
+      ctx.font = '12px "Noto Serif SC", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(`${hoveredPhase} · ${phase.name}`, hx, hy);
+    }
+  }
+
+  function updateDetailPanel(phaseNum) {
+    const phase = phaseData[phaseNum - 1];
+    const fac = getFacultyPositions(phaseNum);
+    const panel = document.getElementById('detailContent');
+
+    const facPhaseData = {
+      will: phaseData[fac.will - 1],
+      mask: phaseData[fac.mask - 1],
+      creativeMind: phaseData[fac.creativeMind - 1],
+      bodyOfFate: phaseData[fac.bodyOfFate - 1]
+    };
+
+    const tendencyLabel = phase.tendency === 'primary'
+      ? '<span style="display:inline-block;background:rgba(90,122,154,0.12);color:#5a7a9a;padding:2px 12px;border-radius:12px;font-size:0.8rem;">客观倾向 · Primary</span>'
+      : '<span style="display:inline-block;background:rgba(184,134,11,0.12);color:#b8860b;padding:2px 12px;border-radius:12px;font-size:0.8rem;">主观倾向 · Antithetical</span>';
+
+    panel.innerHTML = `
+      <div class="detail-phase-number">${phaseNum}</div>
+      <div class="detail-phase-name">${phase.name}</div>
+      <div class="detail-phase-en">${phase.nameEn}</div>
+      <div style="margin-bottom:0.8rem;">${tendencyLabel}</div>
+      <p style="color:var(--ink-light);line-height:1.9;">${phase.description}</p>
+
+      <div class="detail-section-title">四大机能（原著描述）</div>
+      <div class="detail-faculty-row">
+        <span class="faculty-dot will"></span>
+        <span class="faculty-label" style="color:var(--will-color);">意志</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--ink-light);margin:0.2rem 0 0.8rem 1.8rem;">${phase.will}</p>
+
+      <div class="detail-faculty-row">
+        <span class="faculty-dot mask"></span>
+        <span class="faculty-label" style="color:var(--mask-color);">面具</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--ink-light);margin:0.2rem 0 0.8rem 1.8rem;">${phase.mask}</p>
+
+      <div class="detail-faculty-row">
+        <span class="faculty-dot cm"></span>
+        <span class="faculty-label" style="color:var(--cm-color);">创造性心灵</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--ink-light);margin:0.2rem 0 0.8rem 1.8rem;">${phase.creativeMind}</p>
+
+      <div class="detail-faculty-row">
+        <span class="faculty-dot bof"></span>
+        <span class="faculty-label" style="color:var(--bof-color);">命定的躯体</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--ink-light);margin:0.2rem 0 0.8rem 1.8rem;">${phase.bodyOfFate}</p>
+
+      ${phase.examples ? `
+      <div class="detail-section-title">典型例证</div>
+      <p style="font-size:0.9rem;color:var(--ink-light);">${phase.examples}</p>
+      ` : ''}
+    `;
+    panel.scrollTop = 0;
+  }
+
+  function selectPhase(phaseNum) {
+    selectedPhase = phaseNum;
+    updateDetailPanel(phaseNum);
+    updatePhaseGridActive();
+  }
+  window.selectPhase = selectPhase; // Expose for psychological test
+  window.scrollToCompass = function() {
+    document.getElementById('compass-section').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  function updatePhaseGridActive() {
+    document.querySelectorAll('.phase-card').forEach(card => {
+      const pid = parseInt(card.dataset.phase);
+      card.classList.toggle('active', pid === selectedPhase);
+    });
+  }
+
+  // Find which phase is under cursor
+  function getPhaseAtPos(x, y) {
+    const dx = x - cx;
+    const dy = y - cy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    // Check if near the phase ring
+    if (Math.abs(dist - phaseR) < 28) {
+      let angle = Math.atan2(dy, dx);
+      return angleToPhase(angle);
+    }
+
+    // Check faculty ring
+    if (Math.abs(dist - facultyR) < 24 && selectedPhase !== null) {
+      let angle = Math.atan2(dy, dx);
+      const clickedPhase = angleToPhase(angle);
+      const fac = getFacultyPositions(selectedPhase);
+      if (clickedPhase === fac.will || clickedPhase === fac.mask ||
+          clickedPhase === fac.creativeMind || clickedPhase === fac.bodyOfFate) {
+        return null; // Clicked on a faculty dot, don't change phase
+      }
+    }
+
+    return null;
+  }
+
+  // Canvas event handlers
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    mouseX = (e.clientX - rect.left) * scaleX;
+    mouseY = (e.clientY - rect.top) * scaleY;
+
+    const phase = getPhaseAtPos(mouseX, mouseY);
+    if (phase !== hoveredPhase) {
+      hoveredPhase = phase;
+      canvas.style.cursor = phase ? 'pointer' : 'default';
+    }
+  });
+
+  canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    const phase = getPhaseAtPos(x, y);
+    if (phase) {
+      selectPhase(phase);
+    }
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    hoveredPhase = null;
+  });
+
+  // Touch support
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const x = (e.touches[0].clientX - rect.left) * scaleX;
+    const y = (e.touches[0].clientY - rect.top) * scaleY;
+    const phase = getPhaseAtPos(x, y);
+    if (phase) selectPhase(phase);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (selectedPhase === null) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectPhase(selectedPhase % 28 + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectPhase(selectedPhase === 1 ? 28 : selectedPhase - 1);
+    }
+  });
+
+  // Animation loop
+  function animate(timestamp) {
+    drawCompass(timestamp);
+    animationFrame = requestAnimationFrame(animate);
+  }
+
+  // Handle resize
+  function handleResize() {
+    const container = canvas.parentElement;
+    const maxWidth = Math.min(container.clientWidth - 20, 560);
+    canvas.style.width = maxWidth + 'px';
+    canvas.style.height = maxWidth + 'px';
+  }
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+
+  // Initialize
+  selectPhase(15); // Start at Full Moon
+  requestAnimationFrame(animate);
+
+  // ====================================================================
+  // PHASE GRID (bottom section)
+  // ====================================================================
+  const phaseGrid = document.getElementById('phaseGrid');
+  phaseData.forEach(phase => {
+    const card = document.createElement('div');
+    card.className = 'phase-card';
+    card.dataset.phase = phase.id;
+    card.innerHTML = `
+      <div class="phase-card-num">${phase.id}</div>
+      <div class="phase-card-name">${phase.name}</div>
+      <div class="phase-card-en">${phase.nameEn}</div>
+      <div class="phase-card-tendency ${phase.tendency === 'primary' ? 'tendency-primary' : 'tendency-antithetical'}">
+        ${phase.tendency === 'primary' ? '客观' : '主观'}
+      </div>
+    `;
+    card.addEventListener('click', () => {
+      selectPhase(phase.id);
+      document.getElementById('compass-section').scrollIntoView({ behavior: 'smooth' });
+    });
+    phaseGrid.appendChild(card);
+  });
+  updatePhaseGridActive();
+
+  // ====================================================================
+  // NAVIGATION DOTS
+  // ====================================================================
+  const navDots = document.querySelectorAll('#navDots .nav-dot');
+  const sections = Array.from(navDots).map(dot => {
+    const id = dot.getAttribute('href').slice(1);
+    return document.getElementById(id);
+  });
+
+  function updateNavDots() {
+    const scrollY = window.scrollY + window.innerHeight / 3;
+    let activeIdx = 0;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (sections[i] && sections[i].offsetTop <= scrollY) {
+        activeIdx = i;
+        break;
+      }
+    }
+    navDots.forEach((dot, i) => dot.classList.toggle('active', i === activeIdx));
+  }
+
+  window.addEventListener('scroll', updateNavDots);
+
+  // ====================================================================
+  
+// ============================================================
+// 28 PHASES METADATA (Strict Yeats Systems)
+// ============================================================
+
+
+// ============================================================
+
+// ============================================================
+// PSYCHOLOGICAL TEST ENGINE (V2: 20 forced-choice items)
+// ============================================================
+
+// --- 20 Forced-Choice Questions (from 叶芝测试最终版) ---
+const questions = [
+  // --- X-AXIS: WILL (+1) vs BODY OF FATE (-1) ---
+  {
+    dimKey:"x",
+    text:"当面对一个重大的人生分叉路口时，你最底层的决策本能更倾向于：",
+    opts:[
+      {text:"遵从内在直觉的牵引，哪怕与世俗条件相悖。",score:1,tag:"A"},
+      {text:"审慎评估大环境与手中实际资源的限制，选择一条阻力最小的路径。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"如果你发现自己长久以来的心血因为不可抗拒的外部剧变（如行业重塑、政策突变）而彻底流产：",
+    opts:[
+      {text:"先退一步，给自己时间消化这件事，重新想明白它对自己的意义。",score:1,tag:"A"},
+      {text:"先接受现实，然后立刻开始研究新环境下的规则和新的可能性。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"在你的生命经验中，你倾向于如何看待人生中遭遇的“逆境”？",
+    opts:[
+      {text:"人定胜天，逆境是逼出潜能的机会，相信自己的选择能改变现实的走向。",score:1,tag:"A"},
+      {text:"承认有些事确实无法改变，但可以在限制中找到最优解。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"当你的愿望与你所处的家庭环境或社会主流秩序发生正面冲突时：",
+    opts:[
+      {text:"坚持自己想走的路，哪怕家人不理解、周围人不认可，也愿意承担这个代价。",score:1,tag:"A"},
+      {text:"调整自己的期望，适应外部秩序，在其中找到自己相对舒服的位置。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"回顾过去，对于生命中那些不由你控制的重大偶然（如出身、时代遭际），你更认同：",
+    opts:[
+      {text:"它们只是起点，真正决定我是谁的，是我怎么理解和消化这些经历。",score:1,tag:"A"},
+      {text:"它们就是构成我的重要因素，这些事件本身塑造了今天的我。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"在团队协作中，当集体决策与你个人内心的坚持完全背道而驰时：",
+    opts:[
+      {text:"保持内在的审视，即使行动上配合，在精神上也绝对不被集体同化。",score:1,tag:"A"},
+      {text:"认可客观协作的实际需要，避免让个人立场成为凝聚共识的阻碍。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"关于“自由”这一概念，哪种阐述更能切中你内心的共鸣？",
+    opts:[
+      {text:"自由是摆脱一切外在标签与环境束缚，完全听从内心召唤的状态。",score:1,tag:"A"},
+      {text:"自由是在充分认清客观现实之后，做出的理智抉择。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"当身体的局限（如严重的疲惫、疾病或衰老现象）对你的工作或创作产生阻碍时：",
+    opts:[
+      {text:"调动强大的内在精神专注力，超越身体给带来的负面限制。",score:1,tag:"A"},
+      {text:"尊重身体作为物质载体的客观事实，坦然接受，顺应其对自己的约束。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"在评价一个人的“成功”时，你内心深处更看重哪个标准？",
+    opts:[
+      {text:"他是否活成了自己想成为的那个人，内在是否完整自洽。",score:1,tag:"A"},
+      {text:"他是否在外部物质世界建立并留下具有实际影响力的社会成就。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"x",
+    text:"当你决定投入很多精力去探索一个完全陌生的领域时，核心动力往往来自：",
+    opts:[
+      {text:"源于内在的、无法被功利化解释的强烈好奇与吸引力。",score:1,tag:"A"},
+      {text:"出于应对现实生存、改善生活处境的需要，或者是外部环境提供了清晰的赛道机遇。",score:-1,tag:"B"}
+    ]
+  },
+
+  // --- Y-AXIS: MASK (+1) vs CREATIVE MIND (-1) ---
+  {
+    dimKey:"y",
+    text:"在高压的陌生社交场合或极其重要的商务谈判中，你更自然的应对策略是：",
+    opts:[
+      {text:"先观察场面的气氛和对方的期待，然后本能地调整自己去适配那个场景。",score:1,tag:"A"},
+      {text:"保持务实与冷静，用事实和逻辑直接回应，不刻意调整姿态。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"当你试图去深入理解和消化一件极其复杂的、带有争议的宏大社会事件时：",
+    opts:[
+      {text:"先追问这背后的人的故事，从具体处境和情感出发去理解。",score:1,tag:"A"},
+      {text:"先通过多方信息源理清事件前因后果，摸清事件的事实骨架。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"你对待自己性格中某些“不完美、有缺陷”之面的底层态度是：",
+    opts:[
+      {text:"不甘心停留在现在的自己，想通过内在的努力变成更优版本。",score:1,tag:"A"},
+      {text:"坦然接受缺陷是客观事实，然后想办法让它变得可控。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"在完全独处、没有任何外部干扰的深夜，你的大脑更经常处于哪种工作状态？",
+    opts:[
+      {text:"活跃、带有戏剧色彩的内心演练，仿佛在与一个内在的“他者”进行深层对话。",score:1,tag:"A"},
+      {text:"结构化地梳理信息、规划日程，或盘算未解决的具体问题。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"以下哪种载体能展现你的最高创造力：",
+    opts:[
+      {text:"一段能让人代入情感的作品，如小说、绘画、故事短片。",score:1,tag:"A"},
+      {text:"一份逻辑严密、能说服别人的论述或具体的执行方案。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"当身边极其亲近的朋友向你倾诉他们生活中遭遇的严重痛苦与混乱时：",
+    opts:[
+      {text:"调动同理心去感受对方的情感流动，与之达成共鸣。",score:1,tag:"A"},
+      {text:"帮对方梳理线索，分析问题的根源并给出切实对策。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"你倾向于如何看待哲学、艺术或文学在现代生活中的位置？",
+    opts:[
+      {text:"它们是抵抗精神荒漠的核心支柱，人只有通过它们才能寻找并安放真正的内在自我。",score:1,tag:"A"},
+      {text:"它们是有趣的思维工具或精神消遣，但生活真正的重心依然是处理具体的物质与实务。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"在面对一个前方信息严重不明、充满未知风险的重大抉择时：",
+    opts:[
+      {text:"选择相信心中灵光一现的强烈直觉，并赋予这种直觉某种精神性的启示意义。",score:1,tag:"A"},
+      {text:"穷尽手段搜集可信情报，列出利弊，进行全面的理性风险分析。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"如果可以选择，你最希望在这个世界、乃至历史中留下什么样的深刻印象？",
+    opts:[
+      {text:"一个具有独特美学气质、神秘、富有魅力和故事感的人。",score:1,tag:"A"},
+      {text:"一个高效、务实、具备顶尖解决问题能力的人。",score:-1,tag:"B"}
+    ]
+  },
+  {
+    dimKey:"y",
+    text:"当你对当下的生活现状感到一种极度黏滞、渴望打破的厌倦感时：",
+    opts:[
+      {text:"通过想象和内在扮演，先让自己在精神上接近理想中的那个人，再带动现实改变。",score:1,tag:"A"},
+      {text:"制定一项学习计划，用知识和技能打破僵局。",score:-1,tag:"B"}
+    ]
+  }
+];
+
+// --- Circumplex Scoring Engine ---
+function calculateCircumplexPhase(answers) {
+  let sx = 0;
+  let sy = 0;
+
+  questions.forEach((q, i) => {
+    let choiceIdx = answers[i];
+    let score = q.opts[choiceIdx].score;
+    if (q.dimKey === 'x') sx += score;
+    if (q.dimKey === 'y') sy += score;
+  });
+
+  // Handle psychometric center-point anomaly using a micro-offset
+  if (sx === 0 && sy === 0) {
+    sx = 0.05; sy = 0.05;
+  }
+
+  // Calculate theta in radians [0, 2*PI]
+  let angle = Math.atan2(sy, sx);
+  if (angle < 0) {
+    angle += 2 * Math.PI;
+  }
+
+  // Exact Mathematical Translation to Yeats' 28-Phase Wheel
+  // Center Phase 15 at angle = 0 (Full Subjectivity, +X)
+  // Center Phase 1 at angle = PI (Full Objectivity, -X)
+  let continuous_phase = 15 - (angle * 28 / (2 * Math.PI));
+  if (continuous_phase <= 0) {
+    continuous_phase += 28;
+  }
+  
+  let phase = Math.round(continuous_phase);
+  if (phase === 0) phase = 28;
+  if (phase > 28) phase = 1;
+
+  return { phase, sx, sy, angle };
+}
+
+
+
+// --- Test UI State ---
+let testState = {
+  screen: 'intro',
+  currentQuestion: 0,
+  answers: new Array(questions.length).fill(null),
+  result: null
+};
+
+const testApp = document.getElementById('testApp');
+
+function renderTest() {
+  switch (testState.screen) {
+    case 'intro': renderIntro(); break;
+    case 'question': renderQuestion(); break;
+    case 'result': renderResult(); break;
+  }
+}
+
+function renderIntro() {
+  testApp.innerHTML = `
+    <div class="test-card fade-in">
+      <div class="test-icon">◈</div>
+      <div class="test-title">发现你的巨轮相位</div>
+      <div class="test-desc">
+        20 组迫选题，基于正交双轴圆环模型。每组在两种倾向之间做出选择，完成全部配对后系统计算你的极化积分并锁定相位。
+      </div>
+      <button class="test-btn" onclick="startTest()">开始测试</button>
+      <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border-pale);">
+        <p style="font-size:0.8rem;color:var(--ink-muted);margin:0 0 0.5rem;">已知自己的相位？直接跳转：</p>
+        <div style="display:flex;gap:0.4rem;justify-content:center;align-items:center;">
+          <input type="number" id="phaseJumpInput" min="1" max="28" placeholder="–" style="width:70px;padding:0.5rem;text-align:center;font-family:var(--font-display);font-size:1rem;border:1px solid var(--border-pale);border-radius:4px;background:var(--paper-light);color:var(--ink);">
+          <button class="test-btn secondary" onclick="jumpToPhase()" style="padding:0.5rem 1rem;">查看</button>
+        </div>
+        <p style="font-size:0.7rem;color:var(--ink-muted);margin:0.4rem 0 0;">也可在网址后加 <code>?phase=12</code> 直接跳转</p>
+      </div>
+    </div>
+  `;
+}
+
+function startTest() {
+  testState.screen = 'question';
+  testState.currentQuestion = 0;
+  testState.answers = new Array(questions.length).fill(null);
+  renderQuestion();
+}
+window.startTest = startTest;
+
+// Direct phase jump
+window.jumpToPhase = function(phaseNum) {
+  if (!phaseNum) {
+    phaseNum = parseInt(document.getElementById('phaseJumpInput').value);
+  }
+  if (isNaN(phaseNum) || phaseNum < 1 || phaseNum > 28) {
+    alert('请输入 1–28 之间的相位编号');
+    return;
+  }
+  const phase = phaseData[phaseNum - 1];
+  testApp.innerHTML = buildResultHTML({ phase: phaseNum, totalScore: 0, willScore: 0, maskScore: 0, sx: 0, sy: 0 });
+  testApp.scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('test-section').scrollIntoView({ behavior: 'smooth' });
+};
+
+// URL parameter: ?phase=12
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var p = parseInt(params.get('phase'));
+  if (p >= 1 && p <= 28) {
+    var phase = phaseData[p - 1];
+    setTimeout(function() {
+      testApp.innerHTML = buildResultHTML({ phase: p, totalScore: 0, willScore: 0, maskScore: 0, sx: 0, sy: 0 });
+      document.getElementById('test-section').scrollIntoView({ behavior: 'smooth' });
+    }, 400);
+  }
+})();
+
+function renderQuestion() {
+  var q = questions[testState.currentQuestion];
+  var progress = (testState.currentQuestion / questions.length) * 100;
+  var selectedAnswer = testState.answers[testState.currentQuestion];
+  var totalAnswered = testState.answers.filter(function(a) { return a !== null; }).length;
+
+  testApp.innerHTML = `
+    <div class="test-card fade-in" style="text-align:left;">
+      <div class="test-progress-wrap">
+        <div class="test-progress-bar">
+          <div class="test-progress-fill" style="width:${progress}%;"></div>
+        </div>
+        <div class="test-progress-label">问题 ${testState.currentQuestion + 1} / ${questions.length} &middot; 已答 ${totalAnswered} 题 &middot; ${q.dimKey === 'x' ? 'X轴：意志/命定躯体' : 'Y轴：面具/创造性心灵'}</div>
+      </div>
+      <div class="test-question-text">${q.text}</div>
+      <div class="test-options">
+        ${q.opts.map(function(opt, i) {
+          return '<button class="test-option' + (selectedAnswer === i ? ' selected' : '') + '" onclick="selectAnswer(' + i + ')"><span class="opt-tag">[' + opt.tag + ']</span>' + opt.text + '</button>';
+        }).join('')}
+      </div>
+      <div class="test-nav">
+        ${testState.currentQuestion > 0
+          ? '<button class="test-btn secondary" onclick="prevQuestion()">← 上一题</button>'
+          : ''}
+        <span style="color:var(--ink-muted);font-size:0.8rem;">点击选项自动进入下一题</span>
+      </div>
+    </div>
+  `;
+}
+
+window.selectAnswer = function(optionIndex) {
+  testState.answers[testState.currentQuestion] = optionIndex;
+  var btns = testApp.querySelectorAll('.test-option');
+  btns.forEach(function(b, i) { b.classList.toggle('selected', i === optionIndex); });
+  setTimeout(function() {
+    if (testState.currentQuestion < questions.length - 1) {
+      testState.currentQuestion++;
+      renderQuestion();
+    } else {
+      var allAnswered = testState.answers.every(function(a) { return a !== null; });
+      if (allAnswered) {
+        var result = calculateCircumplexPhase(testState.answers);
+        testState.result = result;
+        testState.screen = 'result';
+        testApp.innerHTML = buildResultHTML(result);
+        testApp.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        var firstMissing = testState.answers.findIndex(function(a) { return a === null; });
+        if (firstMissing >= 0) {
+          testState.currentQuestion = firstMissing;
+          renderQuestion();
+        }
+      }
+    }
+  }, 200);
+};
+
+window.prevQuestion = function() {
+  if (testState.currentQuestion > 0) {
+    testState.currentQuestion--;
+    renderQuestion();
+  }
+};
+
+function renderResult() {
+  // handled inline in selectAnswer now
+}
+
+// Build result HTML (shared by test completion, direct jump, and URL param)
+function buildResultHTML(r) {
+  var phase = phaseData[r.phase - 1];
+  var tendencyLabel = phase.tendency === 'primary'
+    ? '<span style="display:inline-block;background:rgba(90,122,154,0.12);color:#5a7a9a;padding:2px 12px;border-radius:12px;font-size:0.8rem;">客观倾向 &middot; Primary</span>'
+    : '<span style="display:inline-block;background:rgba(184,134,11,0.12);color:#b8860b;padding:2px 12px;border-radius:12px;font-size:0.8rem;">主观倾向 &middot; Antithetical</span>';
+
+  var scoreHtml = '';
+  if (r.sx !== undefined && (r.sx !== 0 || r.sy !== 0)) {
+    scoreHtml = '<div style="margin:0.8rem 0;padding:0.6rem;background:var(--paper);border-radius:6px;border:1px solid var(--border-pale);text-align:center;font-size:0.82rem;color:var(--ink-light);">X轴(意志/命定): ' + (r.sx > 0 ? '+' : '') + r.sx + ' &nbsp;|&nbsp; Y轴(面具/CM): ' + (r.sy > 0 ? '+' : '') + r.sy + '</div>';
+  }
+;
+
+  var aiPrompt = [
+    "在叶芝《幻象》（A Vision, 1937 年终版）的二十八相位体系中，第 " + r.phase + " 相位为「" + phase.name + "」（" + phase.nameEn + "）。",
+    "",
+    "请基于原著资料，对这一相位进行系统分析。我希望你的回答具体、有据，避免抽象的学术概括。以下是我希望覆盖的内容：",
+    "",
+    "一、相位结构",
+    "· 第 " + r.phase + " 相位在二十八相位循环中的位置：它处于哪个半区？趋向满月还是趋向新月？",
+    "· 四大机能在此相位上的配置：意志、面具、创造性心灵、命定的躯体各自落在哪个相位？请逐一列出并简要说明每个对应相位的核心特质。",
+    "· 这个相位的真实面具和虚假面具分别是什么？",
+    "",
+    "二、行为模式与内在体验",
+    "· 处于第 " + r.phase + " 相位的人，其意志通常表现为怎样的倾向？在决策、行动和人际中会出现什么典型模式？",
+    "· 请给出 2-3 个具体的生活场景（如职业选择、亲密关系、创作困境），描述一个第 " + r.phase + " 相位的人在这些场景中可能的反应方式，并分析背后的相位驱动力。",
+    "",
+    "三、优势与危险",
+    "· 这一相位结构赋予了什么先天优势？在什么情境下这些优势会得到最大发挥？",
+    "· 潜藏着什么盲区或内在危险？第 " + r.phase + " 相位的人最容易在哪些类型的决定或关系上反复受挫？请给出具体的场景举例。",
+    "",
+    "四、对应相位中的学习资源",
+    "· 我的面具指向哪个相位？那个相位的核心特质是什么？它与第 " + r.phase + " 相位形成了怎样的张力？",
+    "· 我能从面具所在的相位中学到什么？请给出具体的行为建议——当你遇到 XX 情况时，可以尝试像那个相位的人一样，做 YY。",
+    "· 同样，我的命定躯体和创造性心灵各指向哪个相位？从它们身上，我能汲取什么资源或获得什么警示？",
+    "",
+    "五、原型人物",
+    "· 原著中与第 " + r.phase + " 相位相关或相近的历史/文学人物有哪些？请选取 1-2 位，具体讲述他们的人生轨迹。",
+    "",
+    "六、如果以上任何信息在你的训练数据中不够确定，请明确标注哪些是确凿的原著内容、哪些是你的推断。",
+    "",
+    "[以下为可选项]",
+    "我的个人情况补充："
+  ].join("\n");
+
+  var escaped = aiPrompt.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  // Moon phase mini indicator: 28 ticks, glowing dot at user's phase
+  var moonSvg = '<svg width="180" height="180" viewBox="0 0 180 180" style="display:block;margin:0 auto;">' +
+    '<circle cx="90" cy="90" r="78" fill="none" stroke="var(--border-pale)" stroke-width="1"/>' +
+    '<circle cx="90" cy="90" r="68" fill="none" stroke="var(--border-pale)" stroke-width="0.5" stroke-dasharray="2,4"/>';
+  for (var i = 0; i < 28; i++) {
+    var a = -Math.PI/2 + i * (2*Math.PI/28);
+    var tx = 90 + 73 * Math.cos(a);
+    var ty = 90 + 73 * Math.sin(a);
+    var isMajor = (i+1) % 7 === 1 || i+1 === 15;
+    var tickLen = isMajor ? 8 : 4;
+    var tx2 = 90 + (73 - tickLen) * Math.cos(a);
+    var ty2 = 90 + (73 - tickLen) * Math.sin(a);
+    moonSvg += '<line x1="' + tx + '" y1="' + ty + '" x2="' + tx2 + '" y2="' + ty2 + '" stroke="' + ((i+1) === r.phase ? 'var(--navy)' : 'var(--border-pale)') + '" stroke-width="' + ((i+1) === r.phase ? '2' : '0.8') + '"/>';
+  }
+  var pa = -Math.PI/2 + (r.phase - 1) * (2*Math.PI/28);
+  var px = 90 + 73 * Math.cos(pa);
+  var py = 90 + 73 * Math.sin(pa);
+  moonSvg += '<circle cx="' + px + '" cy="' + py + '" r="8" fill="var(--navy)" opacity="0.9"/>';
+  moonSvg += '<circle cx="' + px + '" cy="' + py + '" r="14" fill="none" stroke="var(--navy)" stroke-width="1.5" opacity="0.4"><animate attributeName="r" values="8;16;8" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite"/></circle>';
+  moonSvg += '<text x="90" y="94" text-anchor="middle" font-family="var(--font-display)" font-size="22" fill="var(--navy)" font-weight="700">' + r.phase + '</text>';
+  moonSvg += '</svg>';
+
+  return '<div class="test-card fade-in" style="text-align:center;">' +
+    moonSvg +
+    '<div class="test-result-name" style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-top:0.3rem;">' + phase.name + '</div>' +
+    '<div class="test-result-en" style="font-family:var(--font-display);font-size:0.85rem;color:var(--ink-muted);margin-bottom:0.5rem;">' + phase.nameEn + '</div>' +
+    tendencyLabel +
+    scoreHtml +
+    '<p style="font-size:0.85rem;color:var(--ink-muted);margin:0.6rem 0;line-height:1.7;">' + (phase.description || '').substring(0, 200) + '……</p>' +
+
+    '<div class="result-actions" style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;">' +
+      '<button class="test-btn" onclick="window.selectPhase(' + r.phase + ');window.scrollToCompass();" style="flex:1;">查看详细解读</button>' +
+      '<button class="test-btn secondary" onclick="resetTest()">重新测试</button>' +
+    '</div>' +
+
+    '<div style="margin:1.2rem 0;padding:1rem;background:var(--paper);border:2px dashed var(--navy);border-radius:8px;text-align:left;">' +
+      '<p style="font-size:0.9rem;color:var(--navy);margin:0 0 0.3rem;"><strong>AI 解读提示词</strong></p>' +
+      '<p style="font-size:0.78rem;color:var(--ink-muted);margin:0 0 0.8rem;">如您需要更详尽地的解读和建议，请复制以下文本粘贴至任意 AI 工具。末尾有可选个人经历补充区。</p>' +
+      '<textarea readonly style="width:100%;height:100px;font-size:0.72rem;font-family:var(--font-body-cn);background:var(--paper-light);border:1px solid var(--border-pale);border-radius:4px;padding:0.6rem;color:var(--ink);resize:vertical;line-height:1.6;" id="aiPromptText">' + escaped + '</textarea>' +
+      '<button class="test-btn" style="margin-top:0.6rem;width:100%;font-size:0.9rem;" id="copyBtn" onclick="window.copyPromptToClipboard()">📋 复制提示词到剪贴板</button>' +
+    '</div>' +
+  '</div>';
+}
+
+window.copyPromptToClipboard = function() {
+  var t = document.getElementById('aiPromptText');
+  if (!t) return;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t.value).then(function() {
+      var b = document.getElementById('copyBtn');
+      if (b) { b.textContent = '✓ 已复制！可粘贴至任意 AI 对话中'; setTimeout(function() { b.textContent = '📋 复制提示词到剪贴板'; }, 2500); }
+    }).catch(function() {
+      t.select(); document.execCommand('copy');
+    });
+  } else {
+    t.select(); document.execCommand('copy');
+  }
+};
+
+window.resetTest = function() {
+  testState.screen = 'intro';
+  testState.currentQuestion = 0;
+  testState.answers = new Array(questions.length).fill(null);
+  testState.result = null;
+  renderTest();
+  document.getElementById('test-section').scrollIntoView({ behavior: 'smooth' });
+};
+
+// Initialize
+renderTest();
+
+
+// SCROLL SPY
+  console.log('%c🔮 叶芝《幻象》互动导读已就绪 %c| %c← → 方向键可浏览相位 %c| %c点击罗盘上的相位标记开始探索',
+    'color:#c9a84c;font-size:16px;', '',
+    'color:#a8b4c8;', '',
+    'color:#a8b4c8;');
+
+
+
+  // ====================================================================
+  // SCROLL SPY - Active nav tracking
+  // ====================================================================
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+  const sectionIds = Array.from(navLinks).map(a => a.getAttribute('data-section'));
+  const sidebarSections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY + 120;
+    let activeId = null;
+    for (let i = sidebarSections.length - 1; i >= 0; i--) {
+      if (sidebarSections[i] && sidebarSections[i].offsetTop <= scrollY) {
+        activeId = sectionIds[i]; break;
+      }
+    }
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('data-section') === activeId);
+    });
+  }
+
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => { updateActiveNav(); scrollTicking = false; });
+      scrollTicking = true;
+    }
+  });
+
+  // Smooth scroll for nav clicks
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('data-section'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile sidebar if open
+        document.getElementById('sidebar').classList.remove('open');
+      }
+    });
+  });
+
+  // ====================================================================
+  // SCROLL REVEAL ANIMATIONS
+  // ====================================================================
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.animate-section, .animate-stagger').forEach(el => {
+    revealObserver.observe(el);
+    // Fallback: if already in viewport on load, make visible immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('visible');
+    }
+  });
+
+  // ====================================================================
+  // FLOATING GOLD PARTICLES
+  // ====================================================================
+  const particleContainer = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 8 + 's';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.width = (1 + Math.random() * 3) + 'px';
+    p.style.height = p.style.width;
+    particleContainer.appendChild(p);
+  }
+
+  // ====================================================================
+  // PHASE CARD MOUSE TRACKING (for radial glow effect)
+  // ====================================================================
+  document.querySelectorAll('.phase-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+
+  // Initialize
+  updateActiveNav();
+})();
+
+
+
+
+
+
+</script>
+
+</main>
+
+</body>
+</html>
