@@ -482,7 +482,7 @@ html { scroll-behavior: smooth; }
   .compass-section { flex-direction: column; padding: 1rem; }
   .compass-col { min-width: unset; width: 100%; }
   .detail-col { min-width: unset; max-height: none; width: 100%; }
-  #compassCanvas { width: 100% !important; max-width: 100%; aspect-ratio: 1/1; }
+  #compassCanvas { width: 100% !important; height: auto; aspect-ratio: 1/1; }
   .faculties-grid { grid-template-columns: 1fr; }
   .phase-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   .hero { min-height: auto; padding: 4rem 1.5rem 3rem; }
@@ -1615,16 +1615,14 @@ const phaseData = [
   // Handle resize
   function handleResize() {
     const container = canvas.parentElement;
-    var maxWidth = Math.min(container.clientWidth - 20, 560);
-    if (maxWidth < 300) maxWidth = container.clientWidth - 10;
-    canvas.style.width = maxWidth + 'px';
-    canvas.style.height = maxWidth + 'px';
-    // On very narrow screens, remove inline height to let CSS aspect-ratio handle it
+    var w = Math.min(container.clientWidth - 20, 560);
+    if (w < 200) w = container.clientWidth - 10;
     if (window.innerWidth <= 900) {
+      canvas.style.width = '100%';
       canvas.style.height = '';
-      canvas.style.aspectRatio = '1/1';
     } else {
-      canvas.style.aspectRatio = '';
+      canvas.style.width = w + 'px';
+      canvas.style.height = w + 'px';
     }
   }
 
