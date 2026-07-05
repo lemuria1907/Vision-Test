@@ -1615,9 +1615,17 @@ const phaseData = [
   // Handle resize
   function handleResize() {
     const container = canvas.parentElement;
-    const maxWidth = Math.min(container.clientWidth - 20, 560);
+    var maxWidth = Math.min(container.clientWidth - 20, 560);
+    if (maxWidth < 300) maxWidth = container.clientWidth - 10;
     canvas.style.width = maxWidth + 'px';
     canvas.style.height = maxWidth + 'px';
+    // On very narrow screens, remove inline height to let CSS aspect-ratio handle it
+    if (window.innerWidth <= 900) {
+      canvas.style.height = '';
+      canvas.style.aspectRatio = '1/1';
+    } else {
+      canvas.style.aspectRatio = '';
+    }
   }
 
   window.addEventListener('resize', handleResize);
